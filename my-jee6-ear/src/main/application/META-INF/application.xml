@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC "-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN" "http://java.sun.com/dtd/application_1_3.dtd">
+<application id="Application_ID">
+	<display-name>my-jee6-ear</display-name>
+	<module>
+		<ejb>my-jee6-ejb-1.0.jar</ejb>
+	</module>
+	<module>
+		<web>
+			<web-uri>my-jee6-war-1.0.war</web-uri>
+			<context-root>my-jee6-war</context-root>
+		</web>
+	</module>
+</application>
+

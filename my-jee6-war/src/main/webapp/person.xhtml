@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm
+    l1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+        <title>Enter Name &amp; Age</title>
+    </h:head>
+    <h:body>
+        <h1>Enter Name &amp; Age</h1>
+        <h:form >
+            <h:panelGrid columns="2">
+                <h:outputText value="login:"/>
+                <h:inputText id="login" value="#{person.login}" title="login" required="true">
+                    <f:validateLength minimum="2" maximum="4"/>
+                </h:inputText>
+                <h:outputText value="password:"/>
+                <h:inputText value="#{person.password}" title="password" id="password" required="true"/>
+                <h:outputText value="firstName:"/>
+                <h:inputText value="#{person.firstName}" title="firstName" id="firstName" required="true"/>
+                <h:outputText value="lastName:"/>
+                <h:inputText value="#{person.lastName}" title="lastName" id="lastName" required="true"/>
+            </h:panelGrid>
+                <h:messages />
+            <h:commandButton action="#{person.doUpdate}" value="submit"/>
+        </h:form>
+    </h:body>
+</html>

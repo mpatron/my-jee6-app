@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>my-jee6-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>Java EE ear</name>
+
+	<parent>
+		<groupId>org.jobjects</groupId>
+		<artifactId>my-jee6-app</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jobjects</groupId>
+			<artifactId>my-jee6-war</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jobjects</groupId>
+			<artifactId>my-jee6-ejb</artifactId>
+			<version>1.0</version>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+    <properties>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+    </properties>
+</project>

@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jobjects</groupId>
+	<version>1.0</version>
+	<artifactId>my-jee6-app</artifactId>
+	<packaging>pom</packaging>
+	<name>Java EE pom</name>
+
+	<modules>
+		<module>my-jee6-ear</module>
+		<module>my-jee6-war</module>
+		<module>my-jee6-ejb</module>
+	</modules>
+
+	<url>http://www.jobjects.org</url>
+	<developers>
+		<developer>
+			<id>mpatron</id>
+			<name>Mickaël Patron</name>
+			<email>mickael_patron@hotmail.com</email>
+			<roles>
+				<role>Lead Developer</role>
+			</roles>
+			<timezone>5</timezone>
+		</developer>
+	</developers>
+	<organization>
+		<name>Mickaël Patron</name>
+		<url>http://www.jobjects.org</url>
+	</organization>
+
+	<repositories>
+		<repository>
+			<id>glassfish-repository</id>
+			<name>Java.net Repository for Glassfish</name>
+			<url>http://download.java.net/maven/glassfish</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<compileSource>1.6</compileSource>
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${compileSource}</source>
+					<target>${compileSource}</target>
+					<compilerArguments>
+						<endorseddirs>${endorsed.dir}</endorseddirs>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<ejbVersion>3.1</ejbVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

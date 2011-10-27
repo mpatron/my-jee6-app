@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm
+    l1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+        <title>Enter Name &amp; Age</title>
+    </h:head>
+    <h:body>
+        <h1>Enter Name &amp; Age</h1>
+        <h:form >
+            <h:panelGrid columns="2">
+                <h:outputText value="Name:"/>
+                <h:inputText id="name" value="#{simplebean.name}" title="name" required="true">
+                    <f:validateLength minimum="2" maximum="4"/>
+                </h:inputText>
+                <h:outputText value="Age:"/>
+                <h:inputText value="#{simplebean.age}" title="age" id="age" required="true"/>
+            </h:panelGrid>
+                <h:messages/>
+            <h:commandButton action="show" value="submit"/>
+        </h:form>
+    </h:body>
+</html>
