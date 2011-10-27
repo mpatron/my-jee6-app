@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm
+    l1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Show Name &amp; Age</title>
+    </h:head>
+    <h:body>
+        <h1>Show Name &amp; Age</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputText value="Name:"/>
+                <h:outputText value="#{simplebean.name}" />
+                <h:outputText value="Age:"/>
+                <h:outputText value="#{simplebean.age}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+ 

@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>my-jee6-war</artifactId>
+	<packaging>war</packaging>
+	<name>Java EE war</name>
+
+	<parent>
+		<groupId>org.jobjects</groupId>
+		<artifactId>my-jee6-app</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.jobjects</groupId>
+			<artifactId>my-jee6-ejb</artifactId>
+			<version>1.0</version>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		<!-- RichFaces libraries -->
+		<!-- <dependency> <groupId>org.richfaces.framework</groupId> <artifactId>richfaces-api</artifactId> 
+			<version>3.3.2.SR1</version> </dependency> <dependency> <groupId>org.richfaces.framework</groupId> 
+			<artifactId>richfaces-impl</artifactId> <version>3.3.2.SR1</version> </dependency> 
+			<dependency> <groupId>org.richfaces.ui</groupId> <artifactId>richfaces-ui</artifactId> 
+			<version>3.3.2.SR1</version> </dependency> -->
+		<!-- Apache pour rich Faces -->
+		<!-- <dependency> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
+			<version>1.1.1</version> </dependency> <dependency> <groupId>commons-beanutils</groupId> 
+			<artifactId>commons-beanutils</artifactId> <version>1.8.2</version> </dependency> 
+			<dependency> <groupId>commons-collections</groupId> <artifactId>commons-collections</artifactId> 
+			<version>3.2</version> </dependency> <dependency> <groupId>commons-digester</groupId> 
+			<artifactId>commons-digester</artifactId> <version>1.8.1</version> </dependency> -->
+	</dependencies>
+</project>
+
