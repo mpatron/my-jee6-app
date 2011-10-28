@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ir" verbose="4">
+	<test name="DefaultTestPackage">
+		<classes>
+			<class name="org.jobjects.orm.EJBContainerEmbeddedStartTest" />
+			<class name="org.jobjects.orm.UsersTest" />
+			<class name="org.jobjects.orm.person.PersonStalessTest" />
+			<class name="org.jobjects.orm.EJBContainerEmbeddedStopTest" />
+		</classes>
+	</test>
+</suite>
+

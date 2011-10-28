@@ -1,33 +1,73 @@
 package org.jobjects.orm;
 
+import java.io.File;
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.sql.DataSource;
 
-import org.testng.annotations.Test;
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
+import org.junit.AfterClass;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+//import static org.junit.Assert.as
 
 public class UsersTest {
 	
-	private Context ctx;
+	// ======================================
+	// = Attributes =
+	// ======================================
+	private static EJBContainer ec;
+	private static Context ctx;
 
-	public UsersTest() {
-		ctx = EJBContainerEmbedded.getInstance().getContext();
+	// ======================================
+	// = Lifecycle Methods =
+	// ======================================
+
+	@BeforeClass
+	public static void initContainer() throws Exception {
+		Map<String, Object> properties = new HashMap<String, Object>();
+		properties.put(EJBContainer.APP_NAME, "my-jee-app");
+		properties.put(EJBContainer.MODULES, new File("target/classes"));
+		properties.put(EJBContainer.PROVIDER, "org.glassfish.ejb.embedded.EJBContainerProviderImpl");
+
+		
+		/*Avec une installation de glassfish afin de facilité la confuiguration pour les tests*/
+		/* http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html */
+		properties.put("org.glassfish.ejb.embedded.glassfish.installation.root", "C:/programs/glassfish-3.1.1/glassfish");
+		properties.put("org.glassfish.ejb.embedded.glassfish.instance.root", "C:/programs/glassfish-3.1.1/glassfish/domains/domain1");
+		properties.put("org.glassfish.ejb.embedded.glassfish.configuration.file", "C:/programs/glassfish-3.1.1/glassfish/domains/domain1/config/domain.xml");
+		properties.put("org.glassfish.ejb.embedded.glassfish.keep-temporary-files", "true");
+
+		
+		ec = EJBContainer.createEJBContainer(properties);
+		ctx = ec.getContext();
 	}
-	
-	
+
+	@AfterClass
+	public static void closeContainer() throws Exception {
+		if (ctx != null)
+			ctx.close();
+		if (ec != null)
+			ec.close();
+	}
+
 	// ======================================
 	// = Unit tests =
 	// ======================================
 //	@PersistenceContext
 //	private EntityManager em;
 //
-//	@Test(groups = "ir")
+//	@Test
 //	public void testJNDI() {
 //		try {
 //			/*Fonctionne !!, Glassfish sauvegarde une valeur pour un JNDI il faut ajouter 
@@ -43,7 +83,7 @@ public class UsersTest {
 //		}
 //	}
 //	
-//	@Test(groups = "ir")
+//	@Test
 //	public void testPersistence() {
 //		/* Ne fonctionne pas. Il faut tester le JPA à part.
 //		 * d'un autre coté c'est la parti métier ici et pas la parti persistance !!!
@@ -62,7 +102,7 @@ public class UsersTest {
 //	}
 	
 	
-	@Test(groups = "ir")
+	@Test
 	public void testGetConnection() {
 		try {			
 			DataSource myTest = (DataSource) ctx.lookup("jdbc/maBase");
@@ -78,7 +118,7 @@ public class UsersTest {
 	}
 	
 	
-	@Test(groups = "ir")
+	@Test
 	public void testCreate() throws Exception {
 		try {
 			Users users = (Users) ctx.lookup("java:global/my-jee-app/classes/UsersStateless!org.jobjects.orm.Users");
@@ -102,7 +142,7 @@ public class UsersTest {
 		
 	}
 
-	@Test(groups = "ir")
+	@Test
 	public void testFindUserByLogin() throws Exception {
 //		Users users = (Users) ctx.lookup("java:global/my-jee-app/classes/UsersStateless!org.jobjects.orm.Users");
 //		List<User> userList= users.findUserByLogin("mpatron");
@@ -110,21 +150,20 @@ public class UsersTest {
 	}
 
 	
-	@Test(groups = "ir")
+	@Test
 	public void testSave() {
 		assertTrue(true);
 	}
 
-	@Test(groups = "ir")
+	@Test
 	public void testRemove() {
 		// fail("Not yet implemented");
 		assertTrue(true);
 	}
 
-	@Test(groups = "ir")
+	@Test
 	public void testLoad() {
 		// fail("Not yet implemented");
 		assertTrue(true);
 	}
-
 }
