@@ -10,7 +10,7 @@
         <title>Enter Name &amp; Age</title>
     </h:head>
     <h:body>
-        <h1>Enter Name &amp; Age</h1>
+        <h1>Personne</h1>
         <h:form >
             <h:panelGrid columns="2">
                 <h:outputText value="login:"/>
@@ -24,7 +24,7 @@
                 <h:outputText value="lastName:"/>
                 <h:inputText value="#{person.lastName}" title="lastName" id="lastName" required="true"/>
             </h:panelGrid>
-                <h:messages />
+            <h:messages />
             <h:commandButton action="#{person.doUpdate}" value="submit"/>
         </h:form>
     </h:body>

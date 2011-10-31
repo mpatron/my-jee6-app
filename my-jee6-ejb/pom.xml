@@ -76,6 +76,40 @@
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
+			<!-- 
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dbunit-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+				<dependencies>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>9.0-801.jdbc4</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<driver>org.postgresql.Driver</driver>
+					<url>jdbc:postgresql://localhost:5432/mabase</url>
+					<username>javauser</username>
+					<password>javapassword </password>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>operation</goal>
+						</goals>
+						<configuration>
+							<type>CLEAN_INSERT</type>
+							<src>src/test/resources/db_data.xml</src>
+							<useQualifiedTableNames>true</useQualifiedTableNames>
+							<schema>public</schema>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			-->
 		</plugins>
 	</build>
 
