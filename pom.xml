@@ -95,6 +95,21 @@
 					<ejbVersion>3.1</ejbVersion>
 				</configuration>
 			</plugin>
+
+            <plugin>
+                <groupId>org.glassfish</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <serverID>server</serverID>
+                    <name>server</name>
+                    <app>${project.build.directory}/${build.finalName}.war</app>
+                    <port>8888</port>
+                    <instanceRoot>${project.build.directory}/gfe-${maven.build.timestamp}</instanceRoot>
+                    <autoDelete>true</autoDelete>
+                    <configFile>${basedir}/domain.xml</configFile>
+                </configuration>
+            </plugin>
 			
 		</plugins>
 	</build>

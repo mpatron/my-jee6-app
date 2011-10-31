@@ -26,7 +26,7 @@
 			<type>ejb</type>
 		</dependency>
 	</dependencies>
-    <properties>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
-    </properties>
+	<!-- <properties> <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server> 
+		</properties> -->
+
 </project>
