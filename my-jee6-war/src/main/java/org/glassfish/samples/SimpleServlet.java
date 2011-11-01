@@ -13,7 +13,11 @@ import java.io.IOException;
  */
 @WebServlet(urlPatterns={"/SimpleServlet"})
 public class SimpleServlet extends HttpServlet {
-    @EJB SimpleEJB bean;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@EJB SimpleEJB bean;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
