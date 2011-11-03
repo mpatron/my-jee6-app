@@ -1,31 +1,44 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm
-    l1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      >
-    <h:head>
-        <title>Enter Name &amp; Age</title>
-    </h:head>
-    <h:body>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core">
+
+  <ui:define name="top">
+    top
+  </ui:define>
+
+  <ui:define name="left">
+    left
+  </ui:define>
+
+  <ui:define name="right">
+    right
+  </ui:define>
+
+  <ui:define name="content">
         <h1>Personne</h1>
-        <h:form >
+        <h:form id="person">
             <h:panelGrid columns="2">
                 <h:outputText value="login:"/>
                 <h:inputText id="login" value="#{person.login}" title="login" required="true">
-                    <f:validateLength minimum="2" maximum="4"/>
+                    <c:validateLength minimum="2" maximum="4"/>
                 </h:inputText>
                 <h:outputText value="password:"/>
                 <h:inputText value="#{person.password}" title="password" id="password" required="true"/>
                 <h:outputText value="firstName:"/>
-                <h:inputText value="#{person.firstName}" title="firstName" id="firstName" required="true"/>
+                <h:inputText value="#{person.firstName}" title="firstName" id="firstName"/>
                 <h:outputText value="lastName:"/>
-                <h:inputText value="#{person.lastName}" title="lastName" id="lastName" required="true"/>
+                <h:inputText value="#{person.lastName}" title="lastName" id="lastName"/>
             </h:panelGrid>
             <h:messages />
-            <h:commandButton action="#{person.doUpdate}" value="submit"/>
+            <h:commandButton action="#{person.doUpdate}" value="submit" id="doUpdate"/>
         </h:form>
-    </h:body>
-</html>
+  </ui:define>
+
+  <ui:define name="bottom">
+    bottom
+  </ui:define>
+
+</ui:composition>
