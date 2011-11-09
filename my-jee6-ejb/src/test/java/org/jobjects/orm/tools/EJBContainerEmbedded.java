@@ -1,4 +1,4 @@
-package org.jobjects.orm;
+package org.jobjects.orm.tools;
 
 import java.io.File;
 import java.util.HashMap;

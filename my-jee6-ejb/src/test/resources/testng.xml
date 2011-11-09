@@ -3,10 +3,10 @@
 <suite name="ir" >
   <test name="Test" preserve-order="true">
     <classes>
-      <class name="org.jobjects.orm.EJBContainerEmbeddedStartTest"/>
-      <class name="org.jobjects.orm.UsersTest"/>
+      <class name="org.jobjects.orm.tools.EJBContainerEmbeddedStartTest"/>
       <class name="org.jobjects.orm.person.PersonStalessTest"/>
-      <class name="org.jobjects.orm.EJBContainerEmbeddedStopTest"/>
+      <class name="org.jobjects.orm.role.RoleStalessTest"/>
+      <class name="org.jobjects.orm.tools.EJBContainerEmbeddedStopTest"/>
     </classes>
   </test>
 </suite>

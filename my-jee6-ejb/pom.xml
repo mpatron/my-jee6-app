@@ -72,7 +72,7 @@
 					<argLine>-Xms128m -Xmx256m -XX:PermSize=128m -XX:MaxPermSize=256m</argLine>
 					<parallel>true</parallel>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/config/testng.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
