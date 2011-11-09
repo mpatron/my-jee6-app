@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import org.jobjects.orm.role.Role;
+import java.util.List;
+import javax.persistence.ManyToMany;
 
 /**
  * Entity implementation class for Entity: User
@@ -20,6 +23,12 @@ import javax.persistence.Table;
 		@NamedQuery(name = "findAllPersonByFirstName", query = "select t from Person t where t.firstName = :firstName") })
 public class Person implements Serializable {
 
+	public Person() {
+		super();
+	}
+
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Column(length = 255)
 	private String login;
@@ -36,11 +45,9 @@ public class Person implements Serializable {
 	 */
 	@Column(length = 320)
 	private String email;
-	private static final long serialVersionUID = 1L;
 
-	public Person() {
-		super();
-	}
+	@ManyToMany()
+	private List<Role> role;
 
 	public String getLogin() {
 		return this.login;
@@ -80,6 +87,14 @@ public class Person implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Role> getRole() {
+	    return role;
+	}
+
+	public void setRole(List<Role> param) {
+	    this.role = param;
 	}
 
 }

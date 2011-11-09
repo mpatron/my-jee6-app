@@ -5,6 +5,7 @@
 		<jta-data-source>jdbc/maBase</jta-data-source>
 		<class>org.jobjects.orm.User</class>
 		<class>org.jobjects.orm.person.Person</class>
+		<class>org.jobjects.orm.role.Role</class>
 		<properties>
 			<property name="eclipselink.target-database" value="PostgreSQL"/>
 			<property name="eclipselink.ddl-generation" value="create-tables" />

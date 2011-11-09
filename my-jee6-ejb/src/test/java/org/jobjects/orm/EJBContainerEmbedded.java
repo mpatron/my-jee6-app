@@ -6,29 +6,30 @@ import java.util.Map;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
+
 /**
  * http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html
  * 
  * @author Mickael
- *
+ * 
  */
 public class EJBContainerEmbedded {
 
-	private static EJBContainerEmbedded instance=null;
-	
+	private static EJBContainerEmbedded instance = null;
+
 	// ======================================
 	// = Attributes =
 	// ======================================
 	private static EJBContainer ec;
 	private static Context ctx;
-	
+
 	public static EJBContainerEmbedded getInstance() {
-		if(instance==null) {
-			instance=new EJBContainerEmbedded();
+		if (instance == null) {
+			instance = new EJBContainerEmbedded();
 		}
-		return instance; 
+		return instance;
 	}
-	
+
 	private EJBContainerEmbedded() {
 		Map<String, Object> properties = new HashMap<String, Object>();
 		properties.put(EJBContainer.APP_NAME, "my-jee-app");
@@ -37,8 +38,8 @@ public class EJBContainerEmbedded {
 				"org.glassfish.ejb.embedded.EJBContainerProviderImpl");
 
 		/*
-		 * Avec une installation de glassfish afin de facilité la
-		 * confuiguration pour les tests
+		 * Avec une installation de glassfish afin de facilité la confuiguration
+		 * pour les tests
 		 */
 		/* http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html */
 		properties.put(
@@ -54,17 +55,17 @@ public class EJBContainerEmbedded {
 				"false");
 
 		ec = EJBContainer.createEJBContainer(properties);
-		ctx = ec.getContext();	}
-	
+		ctx = ec.getContext();
+	}
+
 	public EJBContainer getEJBContainer() {
 		return ec;
 	}
-	
+
 	public Context getContext() {
 		return ctx;
 	}
-	
-	
+
 	public void shutdown() throws Exception {
 		if (ctx != null)
 			ctx.close();

@@ -32,8 +32,7 @@ public class PersonStalessTest {
 	@Test(groups = "ir")
 	public void testCreate() {
 		try {
-			PersonFacade personFacade = (PersonFacade) ctx
-					.lookup("java:global/my-jee-app/classes/PersonsStaless!org.jobjects.orm.person.PersonFacade");
+			PersonFacade personFacade = (PersonFacade) ctx.lookup("java:global/my-jee-app/classes/PersonsStaless!org.jobjects.orm.person.PersonFacade");
 			Person person = new Person();
 			person.setLogin("mpatron");
 			person.setEmail("mickael_patron@hotmail.com");

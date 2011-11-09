@@ -2,9 +2,9 @@
 	<entity>
 		<entity-name>org.jobjects.orm.person.Person</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>168</entity-height>
-		<entity-X-Coordinate>260</entity-X-Coordinate>
-		<entity-Y-Coordinate>120</entity-Y-Coordinate>
+		<entity-height>206</entity-height>
+		<entity-X-Coordinate>440</entity-X-Coordinate>
+		<entity-Y-Coordinate>270</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -16,6 +16,17 @@
 		<entity-height>168</entity-height>
 		<entity-X-Coordinate>540</entity-X-Coordinate>
 		<entity-Y-Coordinate>110</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>org.jobjects.orm.role.Role</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>70</entity-height>
+		<entity-X-Coordinate>150</entity-X-Coordinate>
+		<entity-Y-Coordinate>360</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

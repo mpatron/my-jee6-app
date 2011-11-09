@@ -10,4 +10,5 @@
   <module>
     <ejb>my-jee6-ejb-1.0.jar</ejb>
   </module>
+  <library-directory>lib</library-directory>
 </application>
