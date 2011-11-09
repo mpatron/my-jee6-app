@@ -1,4 +1,4 @@
-package org.jobjects.orm;
+package org.jobjects.orm.tools;
 
 import org.testng.annotations.Test;
 

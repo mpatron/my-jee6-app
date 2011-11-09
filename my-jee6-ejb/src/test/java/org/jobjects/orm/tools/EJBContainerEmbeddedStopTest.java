@@ -1,4 +1,4 @@
-package org.jobjects.orm;
+package org.jobjects.orm.tools;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
