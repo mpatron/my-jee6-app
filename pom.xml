@@ -65,11 +65,12 @@
 			<version>6.3</version>
 			<scope>test</scope>
 		</dependency>
-				<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-nop</artifactId>
-    <version>1.6.3</version>
-</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>1.6.3</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
