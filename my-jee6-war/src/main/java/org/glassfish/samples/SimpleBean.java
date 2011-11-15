@@ -9,8 +9,8 @@ import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.NotNull;
 
-import org.jobjects.orm.User;
-import org.jobjects.orm.Users;
+import org.jobjects.orm.person.*;
+
 
 @ManagedBean(name = "simplebean")
 public class SimpleBean {
@@ -19,7 +19,7 @@ public class SimpleBean {
 	//@EJB(lookup = "java:global/ear-1.0/ejb-1.0/UsersStateless!org.jobjects.orm.Users")
 	//@EJB(lookup = "java:global/ear-1.0/ejb-1.0/UsersStateless")
 	@EJB()
-	Users u;
+	PersonStaless u;
 	
 	//@EJB() PersonsStaless p;
 
@@ -44,7 +44,7 @@ public class SimpleBean {
 
 	public String getName() {
 		try {
-			List<User> l= u.findAllUserByFirstName("toto");
+			List<Person> l= u.findAll();
 			name +=l.size();
 		} catch (Throwable ex) {
 			Logger.getLogger(SimpleBean.class.getName()).log(Level.SEVERE,

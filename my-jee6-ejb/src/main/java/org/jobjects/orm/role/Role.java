@@ -26,4 +26,14 @@ public class Role implements Serializable {
 		this.roleName = roleName;
 	}
 
+	@Column(length = 255)
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
