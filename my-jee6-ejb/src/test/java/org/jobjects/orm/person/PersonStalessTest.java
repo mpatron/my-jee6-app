@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 public class PersonStalessTest {
 
 	//private String jndiStaless = "java:global/my-jee-app/classes/PersonsStaless!org.jobjects.orm.person.PersonFacade";
-	private String jndiStaless = "java:global/my-jee-app/classes/PersonsStaless";
+	private String jndiStaless = "java:global/my-jee-app/classes/PersonStaless";
 	
 	private Context ctx;
 

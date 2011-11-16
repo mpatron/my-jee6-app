@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.jobjects.orm.tools.AbstractFacade;
 
-@Stateless(name = "PersonsStaless")
+@Stateless
 @Local({PersonFacade.class})
 public class PersonStaless extends AbstractFacade<Person> implements PersonFacade {
 
