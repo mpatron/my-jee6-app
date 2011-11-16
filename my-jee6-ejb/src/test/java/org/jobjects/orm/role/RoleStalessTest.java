@@ -33,7 +33,7 @@ public class RoleStalessTest {
 	public void testFindAll() {
 		try {
 			RoleFacade RoleFacade = (RoleFacade) ctx
-					.lookup("java:global/my-jee-app/classes/RolesStaless!org.jobjects.orm.role.RoleFacade");
+					.lookup("java:global/my-jee-app/classes/RoleStaless!org.jobjects.orm.role.RoleFacade");
 			List<Role> list = RoleFacade.findAll();
 			System.out.println("count = " + list.size());
 			Logger.getLogger(RoleStalessTest.class.getName()).log(Level.INFO,

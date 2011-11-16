@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.jobjects.orm.tools.AbstractFacade;
 
-@Stateless(name = "RolesStaless")
+@Stateless
 @Local({RoleFacade.class})
 public class RoleStaless extends AbstractFacade<Role> implements RoleFacade {
 

@@ -20,7 +20,7 @@ public class SimpleBean {
 	//@EJB(lookup = "java:global/ear-1.0/ejb-1.0/UsersStateless")
 	@EJB()
 	PersonStaless u;
-	
+
 	//@EJB() PersonsStaless p;
 
 	public SimpleBean() {
