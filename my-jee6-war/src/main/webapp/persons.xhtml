@@ -1,61 +1,74 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm
-    l1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-	<title>#{msg['title']}</title>
-	<h:outputStylesheet library="css" name="table-style.css" />
-</h:head>
-<h:body>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core">
+
+  <ui:define name="top">
+    top
+  </ui:define>
+
+  <ui:define name="left">
+    left
+  </ui:define>
+
+  <ui:define name="right">
+    right
+  </ui:define>
+
+  <ui:define name="content">
 	<h1>Liste de personnne</h1>
-	<h:form>
+	<h:form id="persons">
 
 		<h:commandButton action="person.xhtml" value="New" />
 		<h:dataTable value="#{personList.listAll}" var="o"
 			styleClass="order-table" headerClass="order-table-header"
 			rowClasses="order-table-odd-row,order-table-even-row">
 
-			<h:column>
+			<h:column id="login">
 				<!-- column header -->
-				<f:facet name="header">logino</f:facet>
+				<c:facet name="header">logino</c:facet>
 				<!-- row record -->
     				#{o.login}
     			</h:column>
 
-			<h:column>
-				<f:facet name="header">password</f:facet>
+			<h:column id="password">
+				<c:facet name="header">password</c:facet>
     				#{o.password}
     			</h:column>
 
-			<h:column>
-				<f:facet name="header">firstName</f:facet>
+			<h:column id="firstName">
+				<c:facet name="header">firstName</c:facet>
     				#{o.firstName}
     			</h:column>
 
-			<h:column>
-				<f:facet name="header">lastName</f:facet>
+			<h:column id="lastName">
+				<c:facet name="header">lastName</c:facet>
     				#{o.lastName}
     			</h:column>
 
-			<h:column>
-				<f:facet name="header">Edit</f:facet>
+			<h:column id="doEdit">
+				<c:facet name="header">Edit</c:facet>
 				<h:commandButton action="#{personList.doEdit}" value="Edit" >
-				<f:param name="loginName" value="#{o.login}" />  
+				<c:param name="loginName" value="#{o.login}" />  
 				</h:commandButton>
     			</h:column>
 			
-			<h:column>
-				<f:facet name="header">Delete</f:facet>
+			<h:column id="doDelete">
+				<c:facet name="header">Delete</c:facet>
 				<h:commandButton action="#{personList.doDelete}" value="X" >
-				<f:param name="loginName" value="#{o.login}" />  
+				<c:param name="loginName" value="#{o.login}" />  
 				</h:commandButton>
     			</h:column>
 
 		</h:dataTable>
 
 	</h:form>
-</h:body>
-</html>
+  </ui:define>
+
+  <ui:define name="bottom">
+    bottom
+  </ui:define>
+
+</ui:composition>

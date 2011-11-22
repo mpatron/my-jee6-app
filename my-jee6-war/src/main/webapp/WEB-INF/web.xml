@@ -15,4 +15,8 @@
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
     <param-value>server</param-value>
   </context-param>
+  <error-page>
+    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/index.jsp</location>
+  </error-page>
 </web-app>

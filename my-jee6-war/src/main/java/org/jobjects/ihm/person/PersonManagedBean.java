@@ -16,7 +16,7 @@ import org.jobjects.orm.person.PersonFacade;
 
 @ManagedBean(name = "person")
 public class PersonManagedBean {
-	//lookup="java:module/PersonStaless"
+	//(lookup = "java:global/my-jee6-ear-1.0/my-jee6-ejb-1.0/PersonStaless")
 	@EJB()
 	PersonFacade p;
 
