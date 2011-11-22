@@ -19,6 +19,16 @@
 				<version>2.1.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- 
+					<archive>
+             			<manifest>
+	              			<addClasspath>true</addClasspath>
+	           			</manifest>
+			            <manifestEntries>
+			              <Class-Path>my-jee6-ejb-1.0.jar</Class-Path>
+			            </manifestEntries>
+           			</archive>
+           			 -->					
 				</configuration>
 			</plugin>
 		</plugins>

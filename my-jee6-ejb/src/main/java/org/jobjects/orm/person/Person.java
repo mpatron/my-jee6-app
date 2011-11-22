@@ -27,6 +27,7 @@ public class Person implements Serializable {
 		super();
 	}
 
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
