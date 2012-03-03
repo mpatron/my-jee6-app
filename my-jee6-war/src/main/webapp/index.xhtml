@@ -1,21 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtm
-    l1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      >
-    <h:head>
-        <title>Enter Name &amp; Age</title>
-    </h:head>
-    <h:body>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./WEB-INF/templates/mainTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsf/core">
+
+  <ui:define name="top">
+    top
+  </ui:define>
+
+  <ui:define name="left">
+    left
+  </ui:define>
+
+  <ui:define name="right">
+    right
+  </ui:define>
+
+  <ui:define name="content">
         <h1>Enter Name &amp; Age</h1>
         <h:form >
             <h:panelGrid columns="2">
                 <h:outputText value="Name:"/>
                 <h:inputText id="name" value="#{simplebean.name}" title="name" required="true">
-                    <f:validateLength minimum="2" maximum="4"/>
+                    <c:validateLength minimum="2" maximum="4"/>
                 </h:inputText>
                 <h:outputText value="Age:"/>
                 <h:inputText value="#{simplebean.age}" title="age" id="age" required="true"/>
@@ -23,5 +31,10 @@
                 <h:messages/>
             <h:commandButton action="show" value="submit"/>
         </h:form>
-    </h:body>
-</html>
+  </ui:define>
+
+  <ui:define name="bottom">
+    bottom
+  </ui:define>
+
+</ui:composition>

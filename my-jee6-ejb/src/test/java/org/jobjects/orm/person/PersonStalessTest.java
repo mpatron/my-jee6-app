@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,13 +28,13 @@ public class PersonStalessTest {
 	/**
 	 * Vérifie les attributs de l'apprenti
 	 */
-	@Test(groups = "ir", enabled = true)
+	@Test(groups = "MaSuite", enabled = true)
 	public void attributesTestingShouldBeOk() {
 		System.out.println("test 1");
 		org.testng.Assert.assertTrue(true);
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testCreate() throws Exception {
 		Logger.getLogger(getClass().getName()).log(Level.INFO, "#### >> testCreate");
 		//try {
@@ -50,6 +51,8 @@ public class PersonStalessTest {
 			person.setEmail("mickael_patron@hotmail.com");
 			person.setFirstName("Mickael");
 			person.setLastName("Patron");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy") ;			
+			person.setBirthDate(sdf.parse("29/02/2012"));
 			personFacade.create(person);
 
 			assertNotNull(personFacade.find("mpatron"));
@@ -61,7 +64,7 @@ public class PersonStalessTest {
 */
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testSave() {
 		try {
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
@@ -70,6 +73,8 @@ public class PersonStalessTest {
 			person.setEmail("mickael_patron@hotmail.com");
 			person.setFirstName("Mickaël");
 			person.setLastName("Patron");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy") ;			
+			person.setBirthDate(sdf.parse("29/02/2012"));
 			personFacade.save(person);
 
 			Person person2 = personFacade.find("mpatron");
@@ -86,12 +91,12 @@ public class PersonStalessTest {
 		}
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testRemove() {
 		// fail("Not yet implemented");
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testFind() {
 		try {
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
@@ -103,7 +108,7 @@ public class PersonStalessTest {
 		}
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testFindAll() {
 		try {
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
@@ -119,7 +124,7 @@ public class PersonStalessTest {
 		}
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testFindRange() {
 		try {
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
@@ -134,7 +139,7 @@ public class PersonStalessTest {
 		}
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testCount() {
 		try {
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
@@ -146,7 +151,7 @@ public class PersonStalessTest {
 		}
 	}
 
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testFindByNamedQuery() {
 		try {
 		} catch (Exception e) {

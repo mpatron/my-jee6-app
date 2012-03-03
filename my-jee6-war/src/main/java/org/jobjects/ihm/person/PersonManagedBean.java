@@ -1,5 +1,6 @@
 package org.jobjects.ihm.person;
 
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.jobjects.orm.person.Person;
@@ -35,10 +37,11 @@ public class PersonManagedBean {
 				this.firstName = person.getFirstName();
 				this.lastName = person.getLastName();
 				this.password = person.getPassword();
+				this.birthDate = person.getBirthDate();
 			}
 		} catch (Throwable e) {
 			e.printStackTrace();
-			Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
+			Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
 		}
 
 	}
@@ -51,8 +54,10 @@ public class PersonManagedBean {
 	@Size(max = 50)
 	private String firstName;
 	@Size(max = 50)
-	private String lastName;
-
+	private String lastName;	
+	@Past
+	private Date birthDate;
+	
 	public String getLogin() {
 		return login;
 	}
@@ -85,13 +90,27 @@ public class PersonManagedBean {
 		this.lastName = lastName;
 	}
 
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
 	public String doUpdate() {
 		Person user = new Person();
 		user.setLogin(login);
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		user.setPassword(password);
-		p.save(user);
+		user.setBirthDate(birthDate);
+		 if(null==p.find(login)) {
+			 p.create(user);
+		 } else {
+			 p.save(user);
+		 }
+		
 		return "persons.xhtml";
 	}
 }
