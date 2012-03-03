@@ -1,16 +1,21 @@
 package org.jobjects.orm.person;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.jobjects.orm.role.Role;
-import java.util.List;
-import javax.persistence.ManyToMany;
 
 /**
  * Entity implementation class for Entity: User
@@ -39,6 +44,10 @@ public class Person implements Serializable {
 	private String firstName;
 	@Column(length = 50)
 	private String lastName;
+	@Column
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
+
 
 	/*
 	 * Le RFC 3696 limite la partie gauche à 64 octets au maximum, soit un total
@@ -48,6 +57,7 @@ public class Person implements Serializable {
 	private String email;
 
 	@ManyToMany()
+	@JoinTable(name="persons_roles")
 	private List<Role> role;
 
 	public String getLogin() {
@@ -98,4 +108,12 @@ public class Person implements Serializable {
 	    this.role = param;
 	}
 
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	
 }

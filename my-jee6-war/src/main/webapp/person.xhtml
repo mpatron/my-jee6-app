@@ -31,6 +31,11 @@
                 <h:inputText value="#{person.firstName}" title="firstName" id="firstName"/>
                 <h:outputText value="lastName:"/>
                 <h:inputText value="#{person.lastName}" title="lastName" id="lastName"/>
+                <h:outputText value="birthDate:"/>
+                <h:inputText value="#{person.birthDate}" title="birthDate" id="birthDate">
+                	<c:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                </h:inputText>
+                
             </h:panelGrid>
             <h:messages />
             <h:commandButton action="#{person.doUpdate}" value="submit" id="doUpdate"/>

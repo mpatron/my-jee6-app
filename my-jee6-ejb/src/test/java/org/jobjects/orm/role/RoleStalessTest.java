@@ -23,13 +23,13 @@ public class RoleStalessTest {
 	/**
 	 * Vérifie les attributs de l'apprenti
 	 */
-	@Test(groups = "ir", enabled = true)
+	@Test(groups = "MaSuite", enabled = true)
 	public void attributesTestingShouldBeOk() {
 		System.out.println("test 1");
 		org.testng.Assert.assertTrue(true);
 	}
 	
-	@Test(groups = "ir")
+	@Test(groups = "MaSuite")
 	public void testFindAll() {
 		try {
 			RoleFacade RoleFacade = (RoleFacade) ctx

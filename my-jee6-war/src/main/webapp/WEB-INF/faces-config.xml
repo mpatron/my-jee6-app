@@ -14,4 +14,7 @@
 			<var>msg</var>
 		</resource-bundle>
 	</application>
+	<lifecycle>
+		<phase-listener>org.jobjects.ihm.tracer.TracerPhaseListener</phase-listener>
+	</lifecycle>
 </faces-config>

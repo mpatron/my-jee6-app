@@ -24,3 +24,4 @@ public class PersonStaless extends AbstractFacade<Person> implements PersonFacad
 	}
 
 }
+ 
