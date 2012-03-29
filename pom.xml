@@ -44,6 +44,8 @@
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 	    <!-- <persistence.persistence-unit.provider>org.hibernate.ejb.HibernatePersistence</persistence.persistence-unit.provider>  -->
 	    <persistence.persistence-unit.provider>org.eclipse.persistence.jpa.PersistenceProvider</persistence.persistence-unit.provider>
+		<!-- https://community.jboss.org/wiki/HowToAddRichFaces4xToMavenBasedProject -->
+        <org.richfaces.bom.version>4.2.0.Final</org.richfaces.bom.version>
 	</properties>
 
 	<dependencies>
@@ -120,7 +122,7 @@
 	    </resources>	
 	</build>
   	<scm>
-		<url>file:///D:/csvn/data/my-jee6-app</url>
+		<url>file:///D:/csvn/data/my-jee6-app/trunk</url>
 		<developerConnection>Mickaël Patron</developerConnection>
 	</scm>
 </project>
