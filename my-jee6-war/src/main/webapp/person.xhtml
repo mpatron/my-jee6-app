@@ -4,7 +4,8 @@
                 template="./WEB-INF/templates/mainTemplate.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:c="http://java.sun.com/jsf/core"
-                xmlns:jquery-ui="http://java.sun.com/jsf/composite/components/jquery-ui-jsf">
+				xmlns:a4j="http://richfaces.org/a4j"
+				xmlns:rich="http://richfaces.org/rich">
 
 
 <ui:define name="myJavaScript">
@@ -38,13 +39,9 @@
                 <h:outputText value="lastName:"/>
                 <h:inputText value="#{person.lastName}" title="lastName" id="lastName"/>
                 <h:outputText value="birthDate:"/>
-                <!-- <% /*
-                <h:inputText value="#{person.birthDate}" title="birthDate" id="birthDate">
+				<rich:calendar value="#{person.birthDate}" id="birthDate" title="birthDate" datePattern="dd/MM/yyyy" >
                 	<c:convertDateTime type="date" pattern="dd/MM/yyyy"/>
-                </h:inputText>
-                */ %>
-                 -->
-                <jquery-ui:datepicker value="#{person.birthDate}"/>
+				</rich:calendar>
             </h:panelGrid>
             <h:messages />
             <h:commandButton action="#{person.doUpdate}" value="submit" id="doUpdate"/>
