@@ -3,7 +3,8 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="./WEB-INF/templates/mainTemplate.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:c="http://java.sun.com/jsf/core">
+                xmlns:c="http://java.sun.com/jsf/core"
+                xmlns:jquery-ui="http://java.sun.com/jsf/composite/components/jquery-ui-jsf">
 
 
 <ui:define name="myJavaScript">
@@ -24,11 +25,11 @@
 
   <ui:define name="content">
         <h1>Personne</h1>
-        <h:form id="person">
+        <h:form id="person" prependId="true">
             <h:panelGrid columns="2">
                 <h:outputText value="login:"/>
                 <h:inputText id="login" value="#{person.login}" title="login" required="true">
-                    <c:validateLength minimum="2" maximum="4"/>
+                    <c:validateLength minimum="2" maximum="10"/>
                 </h:inputText>
                 <h:outputText value="password:"/>
                 <h:inputText value="#{person.password}" title="password" id="password" required="true"/>
@@ -37,10 +38,13 @@
                 <h:outputText value="lastName:"/>
                 <h:inputText value="#{person.lastName}" title="lastName" id="lastName"/>
                 <h:outputText value="birthDate:"/>
+                <!-- <% /*
                 <h:inputText value="#{person.birthDate}" title="birthDate" id="birthDate">
                 	<c:convertDateTime type="date" pattern="dd/MM/yyyy"/>
                 </h:inputText>
-                
+                */ %>
+                 -->
+                <jquery-ui:datepicker value="#{person.birthDate}"/>
             </h:panelGrid>
             <h:messages />
             <h:commandButton action="#{person.doUpdate}" value="submit" id="doUpdate"/>

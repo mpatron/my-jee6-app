@@ -33,6 +33,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.jobjects</groupId>
@@ -41,19 +42,29 @@
 			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>
+			
 		<!-- RichFaces libraries -->
-		<!-- <dependency> <groupId>org.richfaces.framework</groupId> <artifactId>richfaces-api</artifactId> 
-			<version>3.3.2.SR1</version> </dependency> <dependency> <groupId>org.richfaces.framework</groupId> 
-			<artifactId>richfaces-impl</artifactId> <version>3.3.2.SR1</version> </dependency> 
-			<dependency> <groupId>org.richfaces.ui</groupId> <artifactId>richfaces-ui</artifactId> 
-			<version>3.3.2.SR1</version> </dependency> -->
-		<!-- Apache pour rich Faces -->
-		<!-- <dependency> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
-			<version>1.1.1</version> </dependency> <dependency> <groupId>commons-beanutils</groupId> 
-			<artifactId>commons-beanutils</artifactId> <version>1.8.2</version> </dependency> 
-			<dependency> <groupId>commons-collections</groupId> <artifactId>commons-collections</artifactId> 
-			<version>3.2</version> </dependency> <dependency> <groupId>commons-digester</groupId> 
-			<artifactId>commons-digester</artifactId> <version>1.8.1</version> </dependency> -->
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-components-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.core</groupId>
+			<artifactId>richfaces-core-impl</artifactId>
+		</dependency>
+		
 	</dependencies>
+	
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${org.richfaces.bom.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>	
 </project>
 
