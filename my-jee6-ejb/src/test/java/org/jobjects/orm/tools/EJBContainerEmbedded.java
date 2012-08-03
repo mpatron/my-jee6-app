@@ -44,15 +44,15 @@ public class EJBContainerEmbedded {
 		/* http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html */
 		properties.put(
 				"org.glassfish.ejb.embedded.glassfish.installation.root",
-				"C:/programs/glassfish-3.1.1/glassfish");
+				"/home/mickael/programs/glassfish");
 		properties.put("org.glassfish.ejb.embedded.glassfish.instance.root",
-				"C:/programs/glassfish-3.1.1/glassfish/domains/domain1");
+				"/home/mickael/programs/glassfish/glassfish/domains/domain1");
 		properties
 				.put("org.glassfish.ejb.embedded.glassfish.configuration.file",
-						"C:/programs/glassfish-3.1.1/glassfish/domains/domain1/config/domain.xml");
+						"/home/mickael/programs/glassfish/glassfish/domains/domain1/config/domain.xml");
 		properties.put(
 				"org.glassfish.ejb.embedded.glassfish.keep-temporary-files",
-				"false");
+				"true");
 
 		ec = EJBContainer.createEJBContainer(properties);
 		ctx = ec.getContext();
