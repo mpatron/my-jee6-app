@@ -91,9 +91,11 @@
 				<configuration>
 					<source>${compileSource}</source>
 					<target>${compileSource}</target>
+					<!-- 
 					<compilerArguments>
 						<endorseddirs>${endorsed.dir}</endorseddirs>
 					</compilerArguments>
+					 -->
 				</configuration>
 			</plugin>
 
