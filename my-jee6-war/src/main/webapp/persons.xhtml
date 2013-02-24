@@ -10,12 +10,17 @@
   </ui:define>
 
 	<ui:define name="left">
-    left
-  </ui:define>
+		<c:view>
+			<p><h:link id="sampleageLink" value="sampleage" outcome="/sampleage?faces-redirect=true" /></p>
+			<p><h:link id="indexLink" value="index" outcome="/index?faces-redirect=true" /></p>
+			<p><h:link id="standardLink" value="standard" outcome="/standard?faces-redirect=true" /></p>
+			<p><h:link id="personsLink" value="persons" outcome="/persons?faces-redirect=true" /></p>
+		</c:view>
+	</ui:define>
 
 	<ui:define name="right">
     right
-  </ui:define>
+  	</ui:define>
 
 	<ui:define name="content">
 		<h1>Liste de personnne</h1>
