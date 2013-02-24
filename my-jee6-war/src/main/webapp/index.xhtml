@@ -1,40 +1,26 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="./WEB-INF/templates/mainTemplate.xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:c="http://java.sun.com/jsf/core">
-
-  <ui:define name="top">
-    top
-  </ui:define>
-
-  <ui:define name="left">
-    left
-  </ui:define>
-
-  <ui:define name="right">
-    right
-  </ui:define>
-
-  <ui:define name="content">
-        <h1>Enter Name &amp; Age</h1>
-        <h:form >
-            <h:panelGrid columns="2">
-                <h:outputText value="Name:"/>
-                <h:inputText id="name" value="#{simplebean.name}" title="name" required="true">
-                    <c:validateLength minimum="2" maximum="4"/>
-                </h:inputText>
-                <h:outputText value="Age:"/>
-                <h:inputText value="#{simplebean.age}" title="age" id="age" required="true"/>
-            </h:panelGrid>
-                <h:messages/>
-            <h:commandButton action="show" value="submit"/>
-        </h:form>
-  </ui:define>
-
-  <ui:define name="bottom">
-    bottom
-  </ui:define>
-
-</ui:composition>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition template="./WEB-INF/templates/mainTemplate.xhtml">
+		<ui:define name="top">top1</ui:define>
+		<ui:define name="left">
+			<f:view>			
+				<p><h:link id="sampleage" value="sampleage" outcome="/sampleage?faces-redirect=true" /></p>
+				<p><h:link id="index" value="index" outcome="/index?faces-redirect=true" /></p>
+				<p><h:link id="standard" value="standard" outcome="/standard?faces-redirect=true" /></p>
+				<p><h:link id="persons" value="persons" outcome="/persons?faces-redirect=true" /></p>
+			</f:view>
+		</ui:define>
+		<ui:define name="content">
+			<f:view>
+				<p>coucou</p>
+				<h:link id="standard" value="standard" outcome="/standard?faces-redirect=true" />
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
