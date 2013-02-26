@@ -30,6 +30,7 @@
   </ui:define>
 
   <ui:define name="content">
+  		<rich:panel header="Personne">
         <h1>Personne</h1>
         <h:form id="person" prependId="true">
             <h:panelGrid columns="2">
@@ -52,6 +53,7 @@
             <h:commandButton action="#{person.doUpdate}" value="submit" id="doUpdate"/>
             <h:commandButton action="persons.xhtml" value="Cancel" id="doCancel" immediate="true" />
         </h:form>
+  		</rich:panel>
   </ui:define>
 
   <ui:define name="bottom">

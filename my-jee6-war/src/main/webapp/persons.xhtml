@@ -3,7 +3,9 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="./WEB-INF/templates/mainTemplate.xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jsf/core">
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
 	<ui:define name="top">
     top
@@ -23,9 +25,10 @@
   	</ui:define>
 
 	<ui:define name="content">
+	
+		<rich:panel header="Liste de personnne">
 		<h1>Liste de personnne</h1>
 		<h:form id="persons">
-
 			<h:commandButton action="person.xhtml" value="New" />
 			<h:dataTable value="#{personList.listAll}" var="o"
 				styleClass="order-table" headerClass="order-table-header"
@@ -68,8 +71,8 @@
 				</h:column>
 
 			</h:dataTable>
-
 		</h:form>
+		</rich:panel>
 	</ui:define>
 
 	<ui:define name="bottom">
