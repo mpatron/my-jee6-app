@@ -19,4 +19,4 @@ asadmin ping-connection-pool PostgresPool
 
 redeploy --name my-jee6-ear-1.0 --properties keepSessions=true C:/Users/Mickael/Documents/java/github/my-jee6-app/my-jee6-ear/target/my-jee6-ear-1.0.ear
 
-deploy --force=true --keepstate=false C:/Users/Mickael/Documents/java/github/my-jee6-app/my-jee6-ear/target/my-jee6-ear-1.0.ear
+deploy --force=true C:/Users/Mickael/Documents/java/github/my-jee6-app/my-jee6-ear/target/my-jee6-ear-1.0.ear
