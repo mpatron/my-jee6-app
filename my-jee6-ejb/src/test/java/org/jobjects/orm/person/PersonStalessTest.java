@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.naming.Context;
 
@@ -16,6 +18,8 @@ import org.testng.annotations.Test;
 
 public class PersonStalessTest {
 
+	private Logger log = Logger.getLogger(getClass().getName());
+	
 	//private String jndiStaless = "java:global/my-jee-app/classes/PersonsStaless!org.jobjects.orm.person.PersonFacade";
 	private String jndiStaless = "java:global/my-jee-app/classes/PersonStaless";
 	
@@ -34,6 +38,16 @@ public class PersonStalessTest {
 		org.testng.Assert.assertTrue(true);
 	}
 
+	@Test(groups = "MaSuite") 
+	public void regexTesting() {
+		log.log(Level.INFO, "regexTesting ^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$");
+		String email ="mickael_patron@hotmail.com";
+		Matcher m= Pattern.compile("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$").matcher(email);		
+		boolean  essai = m.find();
+		assertTrue(essai);
+		
+	}
+	
 	@Test(groups = "MaSuite")
 	public void testCreate() throws Exception {
 		Logger.getLogger(getClass().getName()).log(Level.INFO, "#### >> testCreate");
@@ -86,8 +100,7 @@ public class PersonStalessTest {
 				assertEquals(person.getLastName(), person2.getLastName());
 			}
 		} catch (Exception e) {
-			Logger.getLogger(PersonStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 
@@ -103,8 +116,7 @@ public class PersonStalessTest {
 			Person person = personFacade.find("mpatron");
 			assertNotNull(person);
 		} catch (Exception e) {
-			Logger.getLogger(PersonStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 
@@ -119,8 +131,7 @@ public class PersonStalessTest {
 			assertNotNull(list);
 			assertTrue(1 <= list.size());
 		} catch (Exception e) {
-			Logger.getLogger(PersonStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 
@@ -134,8 +145,7 @@ public class PersonStalessTest {
 			assertNotNull(list);
 			assertTrue(1 == list.size());
 		} catch (Exception e) {
-			Logger.getLogger(PersonStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 
@@ -146,8 +156,7 @@ public class PersonStalessTest {
 			long l = personFacade.count();
 			assertTrue(l >= 0);
 		} catch (Exception e) {
-			Logger.getLogger(PersonStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 
@@ -155,8 +164,7 @@ public class PersonStalessTest {
 	public void testFindByNamedQuery() {
 		try {
 		} catch (Exception e) {
-			Logger.getLogger(PersonStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 
