@@ -2,8 +2,7 @@ package org.jobjects.orm.discussion;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,10 +35,10 @@ public class Discussion implements Serializable {
 	@Id
 	@Column(name = "DISCUSSION_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer discussionId;
+	private Long discussionId;
 
-	@OneToMany(mappedBy = "messageId", cascade = { CascadeType.ALL })
-	private Set<Message> messages = new HashSet<Message>();
+	@OneToMany(mappedBy = "discussion", cascade = { CascadeType.ALL })
+	private List<Message> messages;
 	
 	@Column
 	@Temporal(TemporalType.DATE)
