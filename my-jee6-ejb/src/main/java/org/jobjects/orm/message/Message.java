@@ -34,7 +34,7 @@ public class Message  implements Serializable {
 	@Id
 	@Column(name = "MESSAGE_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer messageId;
+	private Long messageId;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "DISCUSSION_ID", nullable = false)
