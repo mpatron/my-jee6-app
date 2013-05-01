@@ -6,6 +6,7 @@
       <class name="org.jobjects.orm.tools.EJBContainerEmbeddedStartTest"/>
       <class name="org.jobjects.orm.person.PersonStalessTest"/>
       <class name="org.jobjects.orm.role.RoleStalessTest"/>
+      <class name="org.jobjects.orm.discussion.DiscussionStalessTest"/>
       <class name="org.jobjects.orm.tools.EJBContainerEmbeddedStopTest"/>
     </classes>
   </test>

@@ -1,4 +1,4 @@
-package org.jobjects.orm.role;
+package org.jobjects.orm.message;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -9,11 +9,11 @@ import org.jobjects.orm.tools.AbstractFacade;
 import org.jobjects.orm.tools.AppConstants;
 
 @Stateless
-@Local({RoleFacade.class})
-public class RoleStaless extends AbstractFacade<Role> implements RoleFacade {
+@Local({MessageFacade.class})
+public class MessageStaless extends AbstractFacade<Message> implements MessageFacade {
 
-	public RoleStaless() {
-		super(Role.class);
+	public MessageStaless() {
+		super(Message.class);
 	}
 	
 	@PersistenceContext(unitName = AppConstants.PERSISTENCE_UNIT_NAME)
@@ -25,3 +25,4 @@ public class RoleStaless extends AbstractFacade<Role> implements RoleFacade {
 	}
 
 }
+ 
