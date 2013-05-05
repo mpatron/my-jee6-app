@@ -6,7 +6,7 @@ public interface Facade<T> {
 
 	public abstract void create(T entity);
 
-	public abstract void save(T entity);
+	public abstract T save(T entity);
 
 	public abstract void remove(T entity);
 

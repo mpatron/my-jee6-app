@@ -87,5 +87,17 @@ public class Message extends AbstractUUIDBaseEntity implements Serializable {
 		this.leTexte = leTexte;
 	}
 	
-	
+	/**
+	 * @return the discussion
+	 */
+	public Discussion getDiscussion() {
+		return discussion;
+	}
+
+	/**
+	 * @param discussion the discussion to set
+	 */
+	public void setDiscussion(Discussion discussion) {
+		this.discussion = discussion;
+	}
 }

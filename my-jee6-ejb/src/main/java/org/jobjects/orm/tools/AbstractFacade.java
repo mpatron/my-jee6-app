@@ -32,8 +32,8 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 * @see org.jobjects.orm.tools.Facade#save(T)
 	 */
 	@Override
-	public void save(T entity) {
-		getEntityManager().merge(entity);
+	public T save(T entity) {
+		return getEntityManager().merge(entity);
 	}
 
 	/*

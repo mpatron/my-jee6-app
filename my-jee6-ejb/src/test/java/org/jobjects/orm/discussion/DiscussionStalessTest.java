@@ -25,27 +25,21 @@ public class DiscussionStalessTest {
 
 	@Test(groups = "MaSuite")
 	public void testCreate() throws Exception {
-		log.log(Level.INFO,
-				"#### >> testCreate");
-		// try {
-		DiscussionFacade facade = (DiscussionFacade) ctx.lookup(jndiStaless);
+		log.log(Level.INFO, "#### >> testCreate");
+		try {
+			DiscussionFacade facade = (DiscussionFacade) ctx
+					.lookup(jndiStaless);
+			assertNotNull(facade);
 
-//		if (facade.find("mpatron") != null) {
-//			Discussion key = new Discussion();
-//			key.setLogin("mpatron");
-//			facade.remove(key);
-//		}
+			Discussion discussion = new Discussion();
+			discussion.setLeTitre("mon titre à moi !");
+			discussion.setLeTexte("le grand texte.");
+			facade.create(discussion);
 
-		Discussion discussion = new Discussion();
-		discussion.setLeTitre("mon titre à moi !");
-		discussion.setLeTexte("le grand texte.");
-		facade.create(discussion);
+			assertNotNull(facade.findAll());
 
-		assertNotNull(facade.findAll());
-		/*
-		 * } catch (Exception e) {
-		 * Logger.getLogger(PersonStalessTest.class.getName()).log(
-		 * Level.SEVERE, e.getDiscussion(), e); }
-		 */
+		} catch (Exception e) {
+			log.log(Level.SEVERE, e.getMessage(), e);
+		}
 	}
 }

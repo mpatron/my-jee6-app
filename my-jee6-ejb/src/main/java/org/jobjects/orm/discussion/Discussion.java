@@ -1,6 +1,7 @@
 package org.jobjects.orm.discussion;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Discussion extends AbstractUUIDBaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@OneToMany(mappedBy = "discussion", fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
-	private List<Message> messages;
+	private List<Message> messages=new ArrayList<Message>();
 	
 	@Column
 	@Temporal(TemporalType.DATE)
@@ -103,6 +104,20 @@ public class Discussion extends AbstractUUIDBaseEntity implements Serializable {
 	 */
 	public void setLeTexte(String leTexte) {
 		this.leTexte = leTexte;
+	}
+
+	/**
+	 * @return the messages
+	 */
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	/**
+	 * @param messages the messages to set
+	 */
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
 	}
 
 }
