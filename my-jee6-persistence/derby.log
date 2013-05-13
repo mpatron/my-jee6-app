@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Tue May 14 01:07:46 CEST 2013:
+Amorçage de Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268) : instance a816c00e-013e-a026-538f-0000064089d8 
+dans le répertoire de base de données memory:C:\Users\Mickael\Documents\java\github\my-jee6-app\my-jee6-persistence\MyDerbyDB avec le chargeur de classe sun.misc.Launcher$AppClassLoader@230e2610
+Chargé de file:/C:/Users/Mickael/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_07-b10
+user.dir=C:\Users\Mickael\Documents\java\github\my-jee6-app\my-jee6-persistence
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Chargeur de classe de la base de données démarré - derby.database.classpath = ''
+----------------------------------------------------------------
+Tue May 14 01:07:49 CEST 2013:
+Fermeture de l'instance a816c00e-013e-a026-538f-0000064089d8 sur le répertoire de base de données memory:C:\Users\Mickael\Documents\java\github\my-jee6-app\my-jee6-persistence\MyDerbyDB avec le chargeur de classe sun.misc.Launcher$AppClassLoader@230e2610 
+----------------------------------------------------------------
+Tue May 14 01:07:49 CEST 2013 : fermeture du moteur Derby
+----------------------------------------------------------------
