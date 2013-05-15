@@ -7,8 +7,10 @@
       <class name="org.jobjects.derby.DerbyStart"/>
       <class name="org.jobjects.derby.DerbyStop"/>
     -->
+      <class name="org.jobjects.derby.DerbyStart"/>
       <class name="org.jobjects.derby.EntityManagerFactoryStart"/>
       <class name="org.jobjects.derby.EntityManagerFactoryStop"/>
+      <class name="org.jobjects.derby.DerbyStop"/>
     </classes>
   </test>
 </suite>

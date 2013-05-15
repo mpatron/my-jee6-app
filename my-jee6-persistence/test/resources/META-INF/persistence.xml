@@ -5,8 +5,8 @@
 		<mapping-file>META-INF/orm.xml</mapping-file>
 		<class>org.jobjects.orm.person.Person</class>
 		<class>org.jobjects.orm.role.Role</class>
-		<class>org.jobjects.orm.role.Discussion</class>
-		<class>org.jobjects.orm.role.Message</class>
+		<class>org.jobjects.orm.discussion.Discussion</class>
+		<class>org.jobjects.orm.message.Message</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="eclipselink.target-database" value="Derby"/>
@@ -26,7 +26,7 @@
 			<property name="eclipselink.logging.logger" value="JavaLogger"/>
 
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />			
-			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:MyDerbyDB;create=true" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:MyDerbyDB" />
 			<!-- 
 			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:MyDerbyDB;create=true;user=sa;password=manager" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/MyDerbyDB;create=true;user=sa;password=manager" />
