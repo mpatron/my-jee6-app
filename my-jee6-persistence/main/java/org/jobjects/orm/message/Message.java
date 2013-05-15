@@ -16,9 +16,10 @@ import javax.persistence.TemporalType;
 
 import org.jobjects.orm.discussion.Discussion;
 import org.jobjects.orm.tools.AbstractUUIDBaseEntity;
+import org.jobjects.orm.tools.AppConstants;
 
 @Entity
-@Table(name = "MESSAGES"/* , schema = "AAJPA" */)
+@Table(name = "MESSAGES", schema = AppConstants.SCHEMA_NAME)
 @NamedQueries({
 		@NamedQuery(name = "findMessageByMessageId", query = "select t from Message t where t.id = :messageId"),
 		@NamedQuery(name = "findAllMessage", query = "select t from Message t") })

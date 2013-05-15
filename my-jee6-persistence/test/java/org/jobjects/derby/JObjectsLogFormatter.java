@@ -1,6 +1,7 @@
 package org.jobjects.derby;
 
 import java.text.DateFormat;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
@@ -25,8 +26,14 @@ public class JObjectsLogFormatter extends Formatter {
 			.append(format.format(new Date(record.getMillis())))
 			.append("]: ")
 			.append(loggerName)
-			.append(" : ")
-			.append(record.getMessage());
+			.append(" : ");
+		
+		if(record.getParameters()!=null) {
+			output.append(MessageFormat.format(record.getMessage(), record.getParameters()));
+		} else {
+			output.append(record.getMessage());
+		}
+			
 		
 		if(record.getThrown()!=null) {
 			output.append(SystemUtils.LINE_SEPARATOR);

@@ -3,10 +3,12 @@
 <suite name="Suite1" verbose="2" parallel="false">
   <test name="Test" preserve-order="true">
     <classes>
+    <!--
       <class name="org.jobjects.derby.DerbyStart"/>
+      <class name="org.jobjects.derby.DerbyStop"/>
+    -->
       <class name="org.jobjects.derby.EntityManagerFactoryStart"/>
       <class name="org.jobjects.derby.EntityManagerFactoryStop"/>
-      <class name="org.jobjects.derby.DerbyStop"/>
     </classes>
   </test>
 </suite>

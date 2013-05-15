@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.jobjects.orm.tools.AppConstants;
+
 @Entity(name = "Role")
-@Table(name = "ROLES")
+@Table(name = "ROLES", schema = AppConstants.SCHEMA_NAME)
 public class Role implements Serializable {
 
 	public Role() {
