@@ -23,14 +23,18 @@
   </ui:define>
 
   <ui:define name="content">
-        <h1>Show Name &amp; Age</h1>
-        <h:form>
+        <h1>Enter Name &amp; Age</h1>
+        <h:form >
             <h:panelGrid columns="2">
                 <h:outputText value="Name:"/>
-                <h:outputText value="#{simplebean.name}" />
+                <h:inputText id="name" value="#{simplebean.name}" title="name" required="true">
+                    <c:validateLength minimum="2" maximum="4"/>
+                </h:inputText>
                 <h:outputText value="Age:"/>
-                <h:outputText value="#{simplebean.age}" />
+                <h:inputText value="#{simplebean.age}" title="age" id="age" required="true"/>
             </h:panelGrid>
+                <h:messages/>
+            <h:commandButton action="show" value="submit"/>
         </h:form>
   </ui:define>
 
@@ -39,4 +43,3 @@
   </ui:define>
 
 </ui:composition>
- 
