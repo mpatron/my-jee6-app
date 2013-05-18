@@ -28,6 +28,7 @@
 	</dependencies>
 	<!-- <properties> <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server> 
 		</properties> -->
+<<<<<<< HEAD
   <build>
     <plugins>
       <plugin>
@@ -50,3 +51,67 @@
     </plugins>
   </build>
 </project>
+=======
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+           <filtering>true</filtering>
+           <version>6</version>
+           <modules>
+             <ejbModule>
+               <groupId>org.jobjects</groupId>
+               <artifactId>my-jee6-ejb</artifactId>
+               <bundleDir>/</bundleDir>
+             </ejbModule>
+             <webModule>
+               <groupId>org.jobjects</groupId>
+               <artifactId>my-jee6-war</artifactId>
+               <context-root>/my-jee6-war</context-root>
+             </webModule>             
+          </modules>           
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+    	<plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>
+    									org.apache.maven.plugins
+    								</groupId>
+    								<artifactId>
+    									maven-ear-plugin
+    								</artifactId>
+    								<versionRange>[2.7,)</versionRange>
+    								<goals>
+    									<goal>
+    										generate-application-xml
+    									</goal>
+    								</goals>
+    							</pluginExecutionFilter>
+    							<action>
+    								<ignore></ignore>
+    							</action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
+  </build>
+</project>
+>>>>>>> d582d3bc57a19f568c631a1512419ea77fd332c2
