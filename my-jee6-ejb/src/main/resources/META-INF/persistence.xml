@@ -10,6 +10,8 @@
 		<!-- <jta-data-source>java:/jdbc/labase</jta-data-source>  drop-and-create-tables -->
 		<class>org.jobjects.orm.person.Person</class>
 		<class>org.jobjects.orm.role.Role</class>
+		<class>org.jobjects.orm.role.Discussion</class>
+		<class>org.jobjects.orm.role.Message</class>
 		<properties>
 			<property name="eclipselink.target-database" value="PostgreSQL"/>
 			<property name="eclipselink.ddl-generation" value="create-tables" />

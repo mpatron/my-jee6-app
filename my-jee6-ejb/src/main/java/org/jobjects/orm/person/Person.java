@@ -14,6 +14,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Pattern;
 
 import org.jobjects.orm.role.Role;
 
@@ -54,6 +55,8 @@ public class Person implements Serializable {
 	 * de 320 octets au maximum pour l'adresse complète (64+1+255).
 	 */
 	@Column(length = 320)
+	//@javax.validation.constraints.Pattern(regexp="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$")
+	@Pattern(regexp="^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)+$")
 	private String email;
 
 	@ManyToMany()

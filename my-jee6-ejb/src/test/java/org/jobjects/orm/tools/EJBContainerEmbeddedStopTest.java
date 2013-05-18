@@ -6,13 +6,13 @@ import java.util.logging.Logger;
 import org.testng.annotations.Test;
 
 public class EJBContainerEmbeddedStopTest {
-
+	private static Logger LOGGER = Logger.getLogger(EJBContainerEmbeddedStopTest.class
+			.getName());
 	@Test(groups = "ir", enabled = true)
 	public void startGlassfish() {
-		System.out.println(" ====================================== ");
-		System.out.println(" =          STOP GLASSFISH            = ");
-		System.out.println(" ====================================== ");
-
+		LOGGER.log(Level.INFO, " ====================================== ");
+		LOGGER.log(Level.INFO, " =          STOP GLASSFISH            = ");
+		LOGGER.log(Level.INFO, " ====================================== ");
 		try {
 			EJBContainerEmbedded.getInstance().shutdown();
 		} catch (Exception e) {

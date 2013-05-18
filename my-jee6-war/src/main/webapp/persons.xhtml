@@ -3,24 +3,32 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="./WEB-INF/templates/mainTemplate.xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jsf/core">
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
 	<ui:define name="top">
     top
   </ui:define>
 
 	<ui:define name="left">
-    left
-  </ui:define>
+		<c:view>
+			<p><h:link id="sampleageLink" value="sampleage" outcome="/sampleage?faces-redirect=true" /></p>
+			<p><h:link id="indexLink" value="index" outcome="/index?faces-redirect=true" /></p>
+			<p><h:link id="standardLink" value="standard" outcome="/standard?faces-redirect=true" /></p>
+			<p><h:link id="personsLink" value="persons" outcome="/persons?faces-redirect=true" /></p>
+		</c:view>
+	</ui:define>
 
 	<ui:define name="right">
     right
-  </ui:define>
+  	</ui:define>
 
 	<ui:define name="content">
+	
+		<rich:panel header="Liste de personnne">
 		<h1>Liste de personnne</h1>
 		<h:form id="persons">
-
 			<h:commandButton action="person.xhtml" value="New" />
 			<h:dataTable value="#{personList.listAll}" var="o"
 				styleClass="order-table" headerClass="order-table-header"
@@ -63,8 +71,8 @@
 				</h:column>
 
 			</h:dataTable>
-
 		</h:form>
+		</rich:panel>
 	</ui:define>
 
 	<ui:define name="bottom">

@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 
 public class RoleStalessTest {
 
+	private Logger log = Logger.getLogger(getClass().getName());
+	
 	private Context ctx;
 
 	public RoleStalessTest() {
@@ -41,8 +43,7 @@ public class RoleStalessTest {
 			assertNotNull(list);
 			assertTrue(0 <= list.size());
 		} catch (Exception e) {
-			Logger.getLogger(RoleStalessTest.class.getName()).log(
-					Level.SEVERE, e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 	

@@ -17,7 +17,12 @@
   </ui:define>
 
   <ui:define name="left">
-    left
+		<c:view>
+			<p><h:link id="sampleageLink" value="sampleage" outcome="/sampleage?faces-redirect=true" /></p>
+			<p><h:link id="indexLink" value="index" outcome="/index?faces-redirect=true" /></p>
+			<p><h:link id="standardLink" value="standard" outcome="/standard?faces-redirect=true" /></p>
+			<p><h:link id="personsLink" value="persons" outcome="/persons?faces-redirect=true" /></p>
+		</c:view>
   </ui:define>
 
   <ui:define name="right">
@@ -25,6 +30,7 @@
   </ui:define>
 
   <ui:define name="content">
+  		<rich:panel header="Personne">
         <h1>Personne</h1>
         <h:form id="person" prependId="true">
             <h:panelGrid columns="2">
@@ -42,11 +48,14 @@
 				<rich:calendar value="#{person.birthDate}" id="birthDate" title="birthDate" datePattern="dd/MM/yyyy" >
                 	<c:convertDateTime type="date" pattern="dd/MM/yyyy"/>
 				</rich:calendar>
+				<h:outputText value="email:"/>
+				<h:inputText value="#{person.email}" title="email" id="email"/>
             </h:panelGrid>
             <h:messages />
             <h:commandButton action="#{person.doUpdate}" value="submit" id="doUpdate"/>
             <h:commandButton action="persons.xhtml" value="Cancel" id="doCancel" immediate="true" />
         </h:form>
+  		</rich:panel>
   </ui:define>
 
   <ui:define name="bottom">
