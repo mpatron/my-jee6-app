@@ -2,10 +2,6 @@ package org.jobjects.derby;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +17,7 @@ public class DerbyStart {
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@BeforeClass
+	@BeforeClass(groups = "MaSuite")
 	public static void setUpBeforeClass() throws Exception {
 		try {
 			String driver = "org.apache.derby.jdbc.EmbeddedDriver";
@@ -55,7 +51,7 @@ public class DerbyStart {
 	}
 
 	@Test(groups = "MaSuite")
-	public void testStart() {
+	public void testDerbyStart() {
 		LOGGER.log(Level.INFO, "Derby Stating");
 	}
 

@@ -3,8 +3,6 @@ package org.jobjects.derby;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +17,7 @@ public class DerbyStop {
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@AfterClass
+	@AfterClass(groups = "MaSuite")
 	public static void tearDownAfterClass() throws Exception {
 		try {
 			Connection conn=DriverManager.getConnection("jdbc:derby:memory:MyDerbyDB");
@@ -48,7 +46,7 @@ public class DerbyStop {
 	}
 
 	@Test(groups = "MaSuite")
-	public void testStop() {
+	public void testDerbyStop() {
 		LOGGER.log(Level.INFO, "Derby Stop");
 	}
 

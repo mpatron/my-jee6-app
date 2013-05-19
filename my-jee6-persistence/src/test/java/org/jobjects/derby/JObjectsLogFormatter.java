@@ -21,10 +21,10 @@ public class JObjectsLogFormatter extends Formatter {
 		}
 		StringBuilder output = new StringBuilder()
 			.append("[")
-			.append(record.getLevel()).append('|')
-			.append(Thread.currentThread().getName()).append('|')
-			.append(format.format(new Date(record.getMillis())))
-			.append("]: ")
+			.append(record.getLevel()).append(']')
+			//.append(Thread.currentThread().getName()).append('|')
+			.append(" "+ format.format(new Date(record.getMillis())))
+			.append(" : ")
 			.append(loggerName)
 			.append(" : ");
 		

@@ -94,13 +94,17 @@
 					<argLine>-Xms128m -Xmx256m -XX:PermSize=128m -XX:MaxPermSize=256m</argLine>
 					<parallel>true</parallel>
 					<suiteXmlFiles>
-						<suiteXmlFile>test/resources/testng.xml</suiteXmlFile>
+						<suiteXmlFile>${basedir}/src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemProperties>
 						<property>
 							<name>java.util.logging.config.file</name>
-							<value>test/resources/logging.properties</value>
+							<value>${basedir}/src/test/resources/logging.properties</value>
 						</property>
+						<property>
+                			<name>derby.stream.error.file</name>
+                			<value>${basedir}/target/derby.log</value>
+            			</property>						
 					</systemProperties>
 				</configuration>
 			</plugin>

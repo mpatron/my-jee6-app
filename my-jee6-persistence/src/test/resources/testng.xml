@@ -2,6 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite1" verbose="2" parallel="false">
   <test name="Test" preserve-order="true">
+  <groups>
+    <run>
+      <include name="MaSuite"/>
+    </run>
+  </groups>  
     <classes>
     <!--
       <class name="org.jobjects.derby.DerbyStart"/>
@@ -9,6 +14,7 @@
     -->
       <class name="org.jobjects.derby.DerbyStart"/>
       <class name="org.jobjects.derby.EntityManagerFactoryStart"/>
+      <class name="org.jobjects.orm.person.PersontFacadeImplTest"/>
       <class name="org.jobjects.derby.EntityManagerFactoryStop"/>
       <class name="org.jobjects.derby.DerbyStop"/>
     </classes>

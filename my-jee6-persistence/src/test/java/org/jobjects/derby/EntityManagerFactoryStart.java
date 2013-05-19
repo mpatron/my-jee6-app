@@ -6,22 +6,24 @@ import java.util.logging.Logger;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class EntityManagerFactoryStop {
-	private static Logger LOGGER = Logger.getLogger(EntityManagerFactoryStop.class.getName());
+public class EntityManagerFactoryStart {
+	private static Logger LOGGER = Logger.getLogger(EntityManagerFactoryStart.class.getName());
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@BeforeClass
+	@BeforeClass(groups = "MaSuite")
 	public static void setUpBeforeClass() throws Exception {
 		try {
-			EntityManagerFactorySingleton.getInstance().stop();
+			EntityManagerFactorySingleton.getInstance().start();
 		} catch (Throwable e) {
 			LOGGER.log(Level.SEVERE, "Erreur non prévu : ", e);
+			e.printStackTrace();
 		}
 	}
 
 	@Test(groups = "MaSuite")
-	public void testStart() {
-		LOGGER.log(Level.INFO, "EntityManagerFactory Stop");
+	public void testEntityManagerFactoryStart() {
+		LOGGER.log(Level.INFO, "EntityManagerFactory Stating");
 	}
+
 }
