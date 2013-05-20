@@ -14,14 +14,12 @@
 			<!-- 
 			<property name="eclipselink.ddl-generation.output-mode" value="database" />
 			 -->
-            <property name="eclipselink.create-ddl-jdbc-file-name" value="target/createDDL_ddlGeneration.jdbc"/>
-            <property name="eclipselink.drop-ddl-jdbc-file-name" value="target/dropDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.create-ddl-jdbc-file-name" value="./target/createDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.drop-ddl-jdbc-file-name" value="./target/dropDDL_ddlGeneration.jdbc"/>
             <property name="eclipselink.ddl-generation.output-mode" value="both"/>
             	
-            	<!--		
+            <!-- FINEST FINER FINE CONFIG INFO WARNING SEVERE -->
 			<property name="eclipselink.logging.level" value="FINEST"/>
-			 -->
-			<property name="eclipselink.logging.level" value="CONFIG"/>
 
 			<property name="eclipselink.logging.exceptions" value="true" />
 			<property name="eclipselink.logging.session" value="true" />

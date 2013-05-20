@@ -1,13 +1,22 @@
 package org.jobjects.orm.tools;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.jobjects.derby.EntityManagerFactorySingleton;
+import org.jobjects.orm.person.PersontFacadeImplTest;
+
 public abstract class AbstractFacade<T> implements Facade<T> {
+	
+	private Logger LOGGER = Logger.getLogger(getClass().getName());
+	
 	private Class<T> entityClass;
 
 	public AbstractFacade(Class<T> entityClass) {
@@ -23,7 +32,15 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 */
 	@Override
 	public void create(T entity) {
-		getEntityManager().persist(entity);
+		EntityTransaction trx= getEntityManager().getTransaction();
+		trx.begin();
+		try {
+			getEntityManager().persist(entity);
+			trx.commit();
+		} catch (Throwable t) {
+			LOGGER.log(Level.SEVERE, "JPA Erreur non prevu. Transaction est rollback.", t);
+			trx.rollback();
+		}
 	}
 
 	/*
@@ -33,7 +50,17 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 */
 	@Override
 	public T save(T entity) {
-		return getEntityManager().merge(entity);
+		T returnValue=null;
+		EntityTransaction trx= getEntityManager().getTransaction();
+		trx.begin();
+		try {
+			returnValue=getEntityManager().merge(entity);
+			trx.commit();
+		} catch (Throwable t) {
+			LOGGER.log(Level.SEVERE, "JPA Erreur non prevu. Transaction est rollback.", t);
+			trx.rollback();
+		}		
+		return returnValue;
 	}
 
 	/*
@@ -43,7 +70,16 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 */
 	@Override
 	public void remove(T entity) {
-		getEntityManager().remove(getEntityManager().merge(entity));
+		EntityTransaction trx = getEntityManager().getTransaction();
+		trx.begin();
+		try {
+			getEntityManager().remove(getEntityManager().merge(entity));
+			trx.commit();
+		} catch (Throwable t) {
+			LOGGER.log(Level.SEVERE,
+					"JPA Erreur non prevu. Transaction est rollback.", t);
+			trx.rollback();
+		}
 	}
 
 	/*
@@ -97,7 +133,6 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 		CriteriaQuery<Long> cq = cb.createQuery(Long.class);
 		cq.select(cb.count(cq.from(entityClass)));
 		return getEntityManager().createQuery(cq).getSingleResult();
-
 	}
 
 	/**

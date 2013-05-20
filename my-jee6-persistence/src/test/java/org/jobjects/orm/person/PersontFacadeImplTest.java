@@ -11,23 +11,27 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.persistence.EntityTransaction;
+
 import org.jobjects.derby.EntityManagerFactorySingleton;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class PersontFacadeImplTest {
 
-	private static Logger log = Logger.getLogger(PersontFacadeImplTest.class.getName());
-	private static PersontFacadeImpl intanceToDo=null;
-	
+	private static Logger log = Logger.getLogger(PersontFacadeImplTest.class
+			.getName());
+	private static PersontFacadeImpl intanceToDo = null;
+
 	@BeforeClass(groups = "MaSuite")
 	public static void setUpBeforeClass() throws Exception {
 		log.log(Level.INFO, "EntityManagerFactorySingleton Stating");
 		EntityManagerFactorySingleton.getInstance().start();
-		intanceToDo=new PersontFacadeImpl();
-		intanceToDo.entityManager=EntityManagerFactorySingleton.getInstance().getManager();
+		intanceToDo = new PersontFacadeImpl();
+		intanceToDo.entityManager = EntityManagerFactorySingleton.getInstance()
+				.getManager();
 	}
-	
+
 	public PersontFacadeImplTest() {
 	}
 
