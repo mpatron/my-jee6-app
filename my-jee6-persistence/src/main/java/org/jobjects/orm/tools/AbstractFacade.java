@@ -10,9 +10,6 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import org.jobjects.derby.EntityManagerFactorySingleton;
-import org.jobjects.orm.person.PersontFacadeImplTest;
-
 public abstract class AbstractFacade<T> implements Facade<T> {
 	
 	private Logger LOGGER = Logger.getLogger(getClass().getName());
