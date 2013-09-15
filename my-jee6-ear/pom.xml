@@ -8,26 +8,50 @@
 	<parent>
 		<groupId>org.jobjects</groupId>
 		<artifactId>my-jee6-app</artifactId>
-		<version>1.0</version>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-war</artifactId>
-			<version>1.0</version>
+			<version>${parent.version}</version>
 			<type>war</type>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-ejb</artifactId>
-			<version>1.0</version>
+			<version>${parent.version}</version>
 			<type>ejb</type>
 		</dependency>
 	</dependencies>
 	<!-- <properties> <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server> 
 		</properties> -->
+<<<<<<< HEAD
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <modules>
+            <ejbModule>
+               <groupId>org.jobjects</groupId>
+               <artifactId>my-jee6-ejb</artifactId>
+            </ejbModule>
+             <webModule>
+               <groupId>org.jobjects</groupId>
+               <artifactId>my-jee6-war</artifactId>
+               <contextRoot>/my-jee6-war</contextRoot>
+             </webModule>
+          </modules>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+=======
 
   <build>
     <plugins>
@@ -90,3 +114,4 @@
     </pluginManagement>
   </build>
 </project>
+>>>>>>> d582d3bc57a19f568c631a1512419ea77fd332c2
