@@ -40,6 +40,11 @@ public class DerbyStop {
 			for (String table : tables) {
 				sb.append(table);
 				sb.append(SystemUtils.LINE_SEPARATOR);
+				List<String> columnNames= ji.getColumnNames(table);
+				for (String columnName : columnNames) {
+					sb.append(" -"+columnName);
+					sb.append(SystemUtils.LINE_SEPARATOR);
+				}
 				List<String> childTables =ji.getChildTables(table);
 				for (String childTable : childTables) {
 					sb.append("-->");
