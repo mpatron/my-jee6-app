@@ -35,21 +35,21 @@ public class Discussion extends AbstractUUIDBaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@OneToMany(mappedBy = "discussion", fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
-	private List<Message> messages=new ArrayList<Message>();
+	protected List<Message> messages=new ArrayList<Message>();
 	
 	@Column
 	@Temporal(TemporalType.DATE)
-	private Date dateCreation;
+	protected Date dateCreation;
 	
 	@Column
 	@Temporal(TemporalType.DATE)
-	private Date dateMiseAJour;
+	protected Date dateMiseAJour;
 	
 	@Column(name = "LE_TITRE", nullable = false)
-	private String leTitre;
+	protected String leTitre;
 	
 	@Column(name = "LE_TEXTE", nullable = false)
-	private String leTexte;
+	protected String leTexte;
 
 	/**
 	 * @return the dateCreation

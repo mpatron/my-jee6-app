@@ -11,8 +11,6 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.persistence.EntityTransaction;
-
 import org.jobjects.derby.EntityManagerFactorySingleton;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

@@ -9,11 +9,11 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class AbstractUUIDBaseEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+	protected static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "UUID_ID", nullable = false, length=36)
-	private String id;
+	protected String id;
 
 	/**
 	 * @return the id
