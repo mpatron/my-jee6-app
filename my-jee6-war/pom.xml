@@ -42,6 +42,12 @@
 			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jobjects</groupId>
+			<artifactId>my-jee6-persistence</artifactId>
+			<version>${parent.version}</version>
+			<scope>provided</scope>
+		</dependency>
 			
 		<!-- RichFaces libraries -->
 		<dependency>

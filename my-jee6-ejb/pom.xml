@@ -15,6 +15,13 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.jobjects</groupId>
+			<artifactId>my-jee6-persistence</artifactId>
+			<version>${parent.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.glassfish.extras</groupId>
 			<artifactId>glassfish-embedded-all</artifactId>
 			<version>3.1.1</version>
