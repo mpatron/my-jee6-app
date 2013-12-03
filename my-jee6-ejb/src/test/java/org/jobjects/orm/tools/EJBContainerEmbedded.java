@@ -33,32 +33,20 @@ public class EJBContainerEmbedded {
 	private EJBContainerEmbedded() {
 		Map<String, Object> properties = new HashMap<String, Object>();
 		properties.put(EJBContainer.APP_NAME, "my-jee-app");
-		properties.put(EJBContainer.MODULES, new File("target/classes"));
-		properties.put(EJBContainer.PROVIDER,
-				"org.glassfish.ejb.embedded.EJBContainerProviderImpl");
+		properties.put(EJBContainer.MODULES, new File[] { new File("target/test-classes"), new File("target/classes")});
+		properties.put(EJBContainer.PROVIDER, "org.glassfish.ejb.embedded.EJBContainerProviderImpl");
 
 		/*
-		 * Avec une installation de glassfish afin de facilité la confuiguration
-		 * pour les tests
+		 * Avec une installation de glassfish afin de facilité la configuration pour les tests
+		 * http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html
 		 */
-		/* http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html */
-/*
-		String mainPath = "/home/mickael/programs/glassfish3";
-		properties.put("org.glassfish.ejb.embedded.glassfish.installation.root", mainPath);
-		properties.put("org.glassfish.ejb.embedded.glassfish.instance.root", mainPath+"/glassfish/domains/domain1");
-		properties.put("org.glassfish.ejb.embedded.glassfish.configuration.file", mainPath+"/glassfish/domains/domain1/config/domain.xml");
-*/
-		properties.put(
-				"org.glassfish.ejb.embedded.glassfish.installation.root",
-				"C:/programs/glassfish-3.1.2.2-ml/glassfish");
-		properties.put("org.glassfish.ejb.embedded.glassfish.instance.root",
-				"C:/programs/glassfish-3.1.2.2-ml/glassfish/domains/mydomain");
-		properties
-				.put("org.glassfish.ejb.embedded.glassfish.configuration.file",
-						"C:/programs/glassfish-3.1.2.2-ml/glassfish/domains/mydomain/config/domain.xml");
-		properties.put(
-				"org.glassfish.ejb.embedded.glassfish.keep-temporary-files",
-				"true");
+		//String glassFishMainPath = "/home/mickael/programs/glassfish3";
+//		String glassFishMainPath = "C:/programs/glassfish-3.1.2.2-ml/glassfish";
+//		String damineName = "domain1";
+//		properties.put("org.glassfish.ejb.embedded.glassfish.installation.root", glassFishMainPath);
+//		properties.put("org.glassfish.ejb.embedded.glassfish.instance.root", glassFishMainPath+"/glassfish/domains/"+damineName);
+//		properties.put("org.glassfish.ejb.embedded.glassfish.configuration.file", glassFishMainPath+"/glassfish/domains/"+damineName+"/config/domain.xml");
+//		properties.put("org.glassfish.ejb.embedded.glassfish.keep-temporary-files", "true");		
 
 		ec = EJBContainer.createEJBContainer(properties);
 		ctx = ec.getContext();

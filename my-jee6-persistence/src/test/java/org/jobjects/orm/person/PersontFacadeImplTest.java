@@ -48,8 +48,7 @@ public class PersontFacadeImplTest {
 	 */
 	@Test(groups = "MaSuite", enabled = true)
 	public void attributesTestingShouldBeOk() {
-		System.out.println("test 1");
-		org.testng.Assert.assertTrue(true);
+		org.testng.Assert.assertTrue(true, "test 1");
 	}
 
 	@Test(groups = "MaSuite")
@@ -140,7 +139,6 @@ public class PersontFacadeImplTest {
 	public void testFindAll() {
 		try {
 			List<Person> list = intanceToDo.findAll();
-			System.out.println("count = " + list.size());
 			log.log(Level.INFO, ("count = " + list.size()));
 			assertNotNull(list);
 			assertTrue(1 <= list.size());

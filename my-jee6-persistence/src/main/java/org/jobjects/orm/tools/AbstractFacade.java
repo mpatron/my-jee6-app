@@ -29,14 +29,14 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 */
 	@Override
 	public void create(T entity) {
-		EntityTransaction trx= getEntityManager().getTransaction();
-		trx.begin();
+//		EntityTransaction trx= getEntityManager().getTransaction();
+//		trx.begin();
 		try {
 			getEntityManager().persist(entity);
-			trx.commit();
+//			trx.commit();
 		} catch (Throwable t) {
 			LOGGER.log(Level.SEVERE, "JPA Erreur non prevu. Transaction est rollback.", t);
-			trx.rollback();
+//			trx.rollback();
 		}
 	}
 
@@ -48,14 +48,14 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	@Override
 	public T save(T entity) {
 		T returnValue=null;
-		EntityTransaction trx= getEntityManager().getTransaction();
-		trx.begin();
+//		EntityTransaction trx= getEntityManager().getTransaction();
+//		trx.begin();
 		try {
 			returnValue=getEntityManager().merge(entity);
-			trx.commit();
+//			trx.commit();
 		} catch (Throwable t) {
 			LOGGER.log(Level.SEVERE, "JPA Erreur non prevu. Transaction est rollback.", t);
-			trx.rollback();
+//			trx.rollback();
 		}		
 		return returnValue;
 	}
@@ -67,15 +67,15 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 */
 	@Override
 	public void remove(T entity) {
-		EntityTransaction trx = getEntityManager().getTransaction();
-		trx.begin();
+//		EntityTransaction trx = getEntityManager().getTransaction();
+//		trx.begin();
 		try {
 			getEntityManager().remove(getEntityManager().merge(entity));
-			trx.commit();
+//			trx.commit();
 		} catch (Throwable t) {
 			LOGGER.log(Level.SEVERE,
 					"JPA Erreur non prevu. Transaction est rollback.", t);
-			trx.rollback();
+//			trx.rollback();
 		}
 	}
 
