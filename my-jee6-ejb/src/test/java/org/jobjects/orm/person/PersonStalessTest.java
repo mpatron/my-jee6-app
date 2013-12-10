@@ -21,7 +21,8 @@ public class PersonStalessTest {
 	private Logger log = Logger.getLogger(getClass().getName());
 	
 	//private String jndiStaless = "java:global/my-jee-app/classes/PersonsStaless!org.jobjects.orm.person.PersonFacade";
-	private String jndiStaless = "java:global/my-jee-app/classes/PersonStaless";
+	//private String jndiStaless = "java:global/my-jee-app/classes/PersonStaless";
+	private String jndiStaless = "java:global/my-jee-app/PersonStaless";
 	
 	private Context ctx;
 

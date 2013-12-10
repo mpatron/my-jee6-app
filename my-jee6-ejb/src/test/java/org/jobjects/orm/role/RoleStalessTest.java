@@ -16,6 +16,9 @@ public class RoleStalessTest {
 
 	private Logger log = Logger.getLogger(getClass().getName());
 	
+	//"java:global/my-jee-app/classes/RoleStaless!org.jobjects.orm.role.RoleFacade"
+	private String jndiStaless = "java:global/my-jee-app/RoleStaless";
+	
 	private Context ctx;
 
 	public RoleStalessTest() {
@@ -34,8 +37,7 @@ public class RoleStalessTest {
 	@Test(groups = "MaSuite")
 	public void testFindAll() {
 		try {
-			RoleFacade RoleFacade = (RoleFacade) ctx
-					.lookup("java:global/my-jee-app/classes/RoleStaless!org.jobjects.orm.role.RoleFacade");
+			RoleFacade RoleFacade = (RoleFacade) ctx.lookup(jndiStaless);
 			List<Role> list = RoleFacade.findAll();
 			System.out.println("count = " + list.size());
 			Logger.getLogger(RoleStalessTest.class.getName()).log(Level.INFO,
