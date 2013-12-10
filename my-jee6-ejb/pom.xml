@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-persistence</artifactId>
-			<version>${parent.version}</version>
+			<version>${project.parent.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -120,6 +120,16 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<systemProperties>
+						<property>
+							<name>java.util.logging.config.file</name>
+							<value>${basedir}/src/test/resources/logging.properties</value>
+						</property>
+						<property>
+							<name>derby.stream.error.file</name>
+							<value>${basedir}/target/derby.log</value>
+						</property>
+					</systemProperties>
 				</configuration>
 			</plugin>
 			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>dbunit-maven-plugin</artifactId> 
