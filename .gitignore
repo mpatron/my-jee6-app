@@ -16,3 +16,6 @@ target
 
 # fichier temporaire de vim
 *~
+
+# Derby
+derby.log
