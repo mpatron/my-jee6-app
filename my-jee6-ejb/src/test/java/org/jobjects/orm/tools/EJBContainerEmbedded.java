@@ -22,8 +22,8 @@ public class EJBContainerEmbedded {
 	private static Logger LOGGER = Logger.getLogger(EJBContainerEmbedded.class.getName());
 
 	private static EJBContainerEmbedded instance = null;
-	public static final String MODULE_NAME = "my-jee-app";  
-	public static final String TARGET_DIR = "target/" + MODULE_NAME;  
+	//public static final String MODULE_NAME = "my-jee-app";  
+	//public static final String TARGET_DIR = "target/" + MODULE_NAME;  
 	
 
 	// ======================================
@@ -43,26 +43,27 @@ public class EJBContainerEmbedded {
 		return instance;
 	}
 
-	private static File prepareModuleDirectory() throws IOException {  
-	    File result = new File(EJBContainerEmbedded.TARGET_DIR);  
-	    FileUtils.copyDirectory(new File("target/classes"), result);  
-	    FileUtils.copyFile(new File("target/test-classes/META-INF/persistence.xml"),   
-	            new File(EJBContainerEmbedded.TARGET_DIR + "/META-INF/persistence.xml"));  
-	    return result;  
-	}
+//	private static File prepareModuleDirectory() throws IOException {  
+//	    File result = new File(EJBContainerEmbedded.TARGET_DIR);  
+//	    FileUtils.copyDirectory(new File("target/classes"), result);  
+//	    FileUtils.copyFile(new File("target/test-classes/META-INF/persistence.xml"),   
+//	            new File(EJBContainerEmbedded.TARGET_DIR + "/META-INF/persistence.xml"));  
+//	    return result;  
+//	}
 
 	private EJBContainerEmbedded() throws IOException {
 		Map<String, Object> properties = new HashMap<String, Object>();
-		//properties.put(EJBContainer.APP_NAME, "my-jee-app");
+		properties.put(EJBContainer.APP_NAME, "my-jee-ejb");
 		//properties.put(EJBContainer.MODULES, new File[] { new File("target/test-classes"), new File("target/classes")});
-		LOGGER.log(Level.INFO, ">>>>"+(new File("../my-jee6-persistence/target/classes")).getAbsolutePath());
-		properties.put(EJBContainer.MODULES, new File[] { prepareModuleDirectory(), new File("../my-jee6-persistence/target/classes")});
+		//LOGGER.log(Level.INFO, ">>>>"+(new File("../my-jee6-persistence/target/classes")).getAbsolutePath());
+		//properties.put(EJBContainer.MODULES, new File[] { prepareModuleDirectory(), new File("../my-jee6-persistence/target/classes")});
 		//properties.put(EJBContainer.PROVIDER, "org.glassfish.ejb.embedded.EJBContainerProviderImpl");
 
 		
 		properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.openejb.core.LocalInitialContextFactory");
         properties.put(EJBContainer.PROVIDER, "org.apache.openejb.OpenEjbContainer");
-        properties.put("openejb.deployments.classpath.ear", "true");
+        //properties.put("openejb.deployments.classpath.ear", "true");
+        properties.put("openejb.validation.output.level", "VERBOSE");
         
         String dbName="movieDatabase";
         properties.put(dbName, "new://Resource?type=DataSource");

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -13,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 public abstract class AbstractFacade<T> implements Facade<T> {
 	
 	private Logger LOGGER = Logger.getLogger(getClass().getName());
+	private final static PersistenceContextType transactionLocal=PersistenceContextType.TRANSACTION; 
 	
 	private Class<T> entityClass;
 
@@ -29,14 +31,22 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 	 */
 	@Override
 	public void create(T entity) {
-//		EntityTransaction trx= getEntityManager().getTransaction();
-//		trx.begin();
+		EntityTransaction trx=null;
+		if(PersistenceContextType.EXTENDED.equals(transactionLocal)) {
+			LOGGER.warning("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+			trx= getEntityManager().getTransaction();
+			trx.begin();
+		}
 		try {
 			getEntityManager().persist(entity);
-//			trx.commit();
+			if(PersistenceContextType.EXTENDED.equals(transactionLocal)) {
+			trx.commit();
+			}
 		} catch (Throwable t) {
 			LOGGER.log(Level.SEVERE, "JPA Erreur non prevu. Transaction est rollback.", t);
-//			trx.rollback();
+			if(PersistenceContextType.EXTENDED.equals(transactionLocal)) {
+			trx.rollback();
+			}
 		}
 	}
 

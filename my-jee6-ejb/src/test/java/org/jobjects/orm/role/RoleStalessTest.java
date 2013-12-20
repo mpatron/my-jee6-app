@@ -17,7 +17,7 @@ public class RoleStalessTest {
 	private Logger log = Logger.getLogger(getClass().getName());
 	
 	//"java:global/my-jee-app/classes/RoleStaless!org.jobjects.orm.role.RoleFacade"
-	private String jndiStaless = "java:global/my-jee-app/RoleStaless";
+	private String jndiStaless = "java:global/my-jee6-ejb/RoleStaless";
 	
 	private Context ctx;
 

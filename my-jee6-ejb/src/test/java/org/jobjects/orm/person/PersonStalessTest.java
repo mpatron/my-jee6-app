@@ -22,7 +22,7 @@ public class PersonStalessTest {
 	
 	//private String jndiStaless = "java:global/my-jee-app/classes/PersonsStaless!org.jobjects.orm.person.PersonFacade";
 	//private String jndiStaless = "java:global/my-jee-app/classes/PersonStaless";
-	private String jndiStaless = "java:global/my-jee-app/PersonStaless";
+	private String jndiStaless = "java:global/my-jee6-ejb/PersonStaless";
 	
 	private Context ctx;
 

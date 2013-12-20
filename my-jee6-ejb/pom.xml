@@ -18,7 +18,6 @@
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-persistence</artifactId>
 			<version>${project.parent.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>

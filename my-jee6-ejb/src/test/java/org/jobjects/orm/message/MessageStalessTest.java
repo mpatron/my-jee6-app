@@ -19,8 +19,8 @@ public class MessageStalessTest {
 
 	// private String jndiStaless =
 	// "java:global/my-jee-app/classes/MessagesStaless!org.jobjects.orm.message.MessageFacade";
-	private String jndiStaless = "java:global/my-jee-app/MessageStaless";
-	private String jndiDiscussionStaless = "java:global/my-jee-app/DiscussionStaless";
+	private String jndiStaless = "java:global/my-jee6-ejb/MessageStaless";
+	private String jndiDiscussionStaless = "java:global/my-jee6-ejb/DiscussionStaless";
 	private Context ctx;
 
 	public MessageStalessTest() {
