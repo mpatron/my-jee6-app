@@ -17,6 +17,7 @@ public class EntityManagerFactoryStop {
 			EntityManagerFactorySingleton.getInstance().stop();
 		} catch (Throwable e) {
 			LOGGER.log(Level.SEVERE, "Erreur non prévu : ", e);
+			throw e;
 		}
 	}
 

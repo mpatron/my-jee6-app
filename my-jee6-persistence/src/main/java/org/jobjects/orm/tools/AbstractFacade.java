@@ -1,6 +1,7 @@
 package org.jobjects.orm.tools;
 
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,6 +38,11 @@ public abstract class AbstractFacade<T> implements Facade<T> {
 			trx= getEntityManager().getTransaction();
 			trx.begin();
 		}
+		Map<String,Object> m= getEntityManager().getProperties();
+		for (String key : m.keySet()) {
+			LOGGER.warning(">>"+key+"="+m.get(key));
+		}
+		LOGGER.warning(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		try {
 			getEntityManager().persist(entity);
 			if(PersistenceContextType.EXTENDED.equals(transactionLocal)) {

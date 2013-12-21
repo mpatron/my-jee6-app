@@ -68,29 +68,30 @@ public class PersontFacadeImplTest {
 	public void testCreate() throws Exception {
 		Logger.getLogger(getClass().getName()).log(Level.INFO,
 				"#### >> testCreate");
-		// try {
+		try {
 
-		if (intanceToDo.find("mpatron") != null) {
-			Person key = new Person();
-			key.setLogin("mpatron");
-			intanceToDo.remove(key);
+			if (intanceToDo.find("mpatron") != null) {
+				Person key = new Person();
+				key.setLogin("mpatron");
+				intanceToDo.remove(key);
+			}
+
+			Person person = new Person();
+			person.setLogin("mpatron");
+			person.setEmail("mickael_patron@hotmail.com");
+			person.setFirstName("Mickael");
+			person.setLastName("Patron");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			person.setBirthDate(sdf.parse("29/02/2012"));
+			intanceToDo.create(person);
+
+			assertNotNull(intanceToDo.find("mpatron"));
+
+		} catch (Exception e) {
+			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 
-		Person person = new Person();
-		person.setLogin("mpatron");
-		person.setEmail("mickael_patron@hotmail.com");
-		person.setFirstName("Mickael");
-		person.setLastName("Patron");
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		person.setBirthDate(sdf.parse("29/02/2012"));
-		intanceToDo.create(person);
-
-		assertNotNull(intanceToDo.find("mpatron"));
-		/*
-		 * } catch (Exception e) {
-		 * Logger.getLogger(PersonStalessTest.class.getName()).log(
-		 * Level.SEVERE, e.getMessage(), e); }
-		 */
 	}
 
 	@Test(groups = "MaSuite")
@@ -117,6 +118,7 @@ public class PersontFacadeImplTest {
 			}
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw new RuntimeException(e.getMessage());
 		}
 	}
 
@@ -132,6 +134,7 @@ public class PersontFacadeImplTest {
 			assertNotNull(person);
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 	}
 
@@ -144,6 +147,7 @@ public class PersontFacadeImplTest {
 			assertTrue(1 <= list.size());
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 	}
 
@@ -156,6 +160,7 @@ public class PersontFacadeImplTest {
 			assertTrue(1 == list.size());
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 	}
 
@@ -166,6 +171,7 @@ public class PersontFacadeImplTest {
 			assertTrue(l >= 0);
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 	}
 
@@ -174,6 +180,7 @@ public class PersontFacadeImplTest {
 		try {
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 	}
 

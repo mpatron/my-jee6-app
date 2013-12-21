@@ -17,7 +17,7 @@ public class EntityManagerFactoryStart {
 			EntityManagerFactorySingleton.getInstance().start();
 		} catch (Throwable e) {
 			LOGGER.log(Level.SEVERE, "Erreur non prévu : ", e);
-			e.printStackTrace();
+			throw e;
 		}
 	}
 
