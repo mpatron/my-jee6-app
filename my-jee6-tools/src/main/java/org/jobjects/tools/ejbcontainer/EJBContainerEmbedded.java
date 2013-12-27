@@ -1,6 +1,5 @@
-package org.jobjects.orm.tools;
+package org.jobjects.tools.ejbcontainer;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +8,6 @@ import java.util.logging.Logger;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * http://download.oracle.com/docs/cd/E18930_01/html/821-2424/gjlde.html

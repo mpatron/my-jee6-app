@@ -12,11 +12,12 @@
       <class name="org.jobjects.derby.DerbyStart"/>
       <class name="org.jobjects.derby.DerbyStop"/>
     -->
-      <class name="org.jobjects.derby.DerbyStart"/>
-      <class name="org.jobjects.derby.EntityManagerFactoryStart"/>
+      <class name="org.jobjects.tools.derby.DerbyStart"/>
+      <class name="org.jobjects.tools.entitymanager.EntityManagerFactoryStart"/>
       <class name="org.jobjects.orm.person.PersontFacadeImplTest"/>
-      <class name="org.jobjects.derby.EntityManagerFactoryStop"/>
-      <class name="org.jobjects.derby.DerbyStop"/>
+      <class name="org.jobjects.orm.discussion.DiscussionFacadeTest"/>
+      <class name="org.jobjects.tools.entitymanager.EntityManagerFactoryStop"/>
+      <class name="org.jobjects.tools.derby.DerbyStop"/>
     </classes>
   </test>
 </suite>

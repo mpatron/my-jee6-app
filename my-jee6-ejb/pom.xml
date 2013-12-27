@@ -16,6 +16,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.jobjects</groupId>
+			<artifactId>my-jee6-tools</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-persistence</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>

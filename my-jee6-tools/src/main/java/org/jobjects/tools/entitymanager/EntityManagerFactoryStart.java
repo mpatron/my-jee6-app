@@ -1,0 +1,29 @@
+package org.jobjects.tools.entitymanager;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class EntityManagerFactoryStart {
+	private static Logger LOGGER = Logger.getLogger(EntityManagerFactoryStart.class.getName());
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeClass(groups = "MaSuite")
+	public static void setUpBeforeClass() throws Exception {
+		try {
+			EntityManagerFactorySingleton.getInstance().start();
+		} catch (Throwable e) {
+			LOGGER.log(Level.SEVERE, "Erreur non prévu : ", e);
+			throw e;
+		}
+	}
+
+	@Test(groups = "MaSuite")
+	public void testEntityManagerFactoryStart() {
+		LOGGER.log(Level.INFO, "EntityManagerFactory Stating");
+	}
+
+}

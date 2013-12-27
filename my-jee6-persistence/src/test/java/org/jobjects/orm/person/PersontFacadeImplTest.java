@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jobjects.derby.EntityManagerFactorySingleton;
+import org.jobjects.tools.entitymanager.EntityManagerFactorySingleton;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
