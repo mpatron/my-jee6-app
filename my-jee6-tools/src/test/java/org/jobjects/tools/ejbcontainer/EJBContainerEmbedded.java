@@ -29,9 +29,10 @@ public class EJBContainerEmbedded {
 	private static EJBContainer ec;
 	private static Context ctx;
 
-	public static EJBContainerEmbedded getInstance() {
+	public synchronized static EJBContainerEmbedded getInstance() {
 		if (instance == null) {
 			try {
+				LOGGER.log(Level.INFO, "Create EJBContainerEmbedded.");
 				instance = new EJBContainerEmbedded();
 			} catch (Throwable t) {
 				LOGGER.log(Level.SEVERE, "internal error.", t);
@@ -48,7 +49,7 @@ public class EJBContainerEmbedded {
 //	    return result;  
 //	}
 
-	private EJBContainerEmbedded() throws IOException {
+	protected EJBContainerEmbedded() {
 		Map<String, Object> properties = new HashMap<String, Object>();
 		//properties.put(EJBContainer.APP_NAME, "my-jee-ejb");
 		//properties.put(EJBContainer.MODULES, new File[] { new File("target/test-classes"), new File("target/classes")});
@@ -60,9 +61,9 @@ public class EJBContainerEmbedded {
 		properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.openejb.core.LocalInitialContextFactory");
         properties.put(EJBContainer.PROVIDER, "org.apache.openejb.OpenEjbContainer");
         //properties.put("openejb.deployments.classpath.ear", "true");
-        properties.put("openejb.validation.output.level", "VERBOSE");
+        //properties.put("openejb.validation.output.level", "VERBOSE");
         
-        String dbName="movieDatabase";
+        String dbName="maBase";
         properties.put(dbName, "new://Resource?type=DataSource");
         dbName += ".";
         properties.put(dbName + "JdbcDriver", "org.apache.derby.jdbc.EmbeddedDriver");

@@ -3,12 +3,12 @@
 <suite name="Suite" parallel="false">
   <test name="Test" preserve-order="true">
     <classes>
-      <class name="org.jobjects.orm.tools.EJBContainerEmbeddedStartTest"/>
+      <class name="org.jobjects.tools.ejbcontainer.EJBContainerEmbeddedStartTest"/>
       <class name="org.jobjects.orm.person.PersonStalessTest"/>
       <class name="org.jobjects.orm.role.RoleStalessTest"/>
       <class name="org.jobjects.orm.discussion.DiscussionStalessTest"/>
       <class name="org.jobjects.orm.message.MessageStalessTest"/>
-      <class name="org.jobjects.orm.tools.EJBContainerEmbeddedStopTest"/>
+      <class name="org.jobjects.tools.ejbcontainer.EJBContainerEmbeddedStopTest"/>
     </classes>
   </test>
 </suite>

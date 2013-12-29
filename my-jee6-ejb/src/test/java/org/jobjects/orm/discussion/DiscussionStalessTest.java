@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import javax.naming.Context;
 
-import org.jobjects.orm.tools.EJBContainerEmbedded;
+import org.jobjects.tools.ejbcontainer.EJBContainerEmbedded;
 import org.testng.annotations.Test;
 
 public class DiscussionStalessTest {
@@ -21,13 +21,14 @@ public class DiscussionStalessTest {
 	private Context ctx;
 
 	public DiscussionStalessTest() {
-		ctx = EJBContainerEmbedded.getInstance().getContext();
+		//ctx = EJBContainerEmbedded.getInstance().getContext();
 	}
 
 	@Test(groups = "MaSuite")
 	public void testCreate() throws Exception {
 		log.log(Level.INFO, "#### >> testCreate");
 		try {
+			ctx = EJBContainerEmbedded.getInstance().getContext();
 			DiscussionFacade facade = (DiscussionFacade) ctx
 					.lookup(jndiStaless);
 			assertNotNull(facade);

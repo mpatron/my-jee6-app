@@ -26,8 +26,7 @@ public class PersontFacadeImplTest {
 		log.log(Level.INFO, "EntityManagerFactorySingleton Stating");
 		EntityManagerFactorySingleton.getInstance().start();
 		intanceToDo = new PersontFacadeImpl();
-		intanceToDo.entityManager = EntityManagerFactorySingleton.getInstance()
-				.getManager();
+		intanceToDo.setEntityManager(EntityManagerFactorySingleton.getInstance().getManager());
 	}
 
 	public PersontFacadeImplTest() {

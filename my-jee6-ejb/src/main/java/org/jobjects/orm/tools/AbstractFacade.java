@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-public class AbstractFacade<T> implements Facade<T> {
+public abstract class AbstractFacade<T> implements Facade<T> {
 
 	private Logger LOGGER = Logger.getLogger(getClass().getName());
 	private PersistenceContextType transactionLocal;
@@ -28,14 +28,8 @@ public class AbstractFacade<T> implements Facade<T> {
 		}
 	}
 
-	protected EntityManager entityManager;
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
+	protected abstract EntityManager getEntityManager();
 	
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager=entityManager;
-	}
 
 	/*
 	 * (non-Javadoc)

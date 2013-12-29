@@ -5,4 +5,4 @@
  * @author Mickael
  *
  */
-package org.jobjects.derby;
+package org.jobjects.orm.tools;

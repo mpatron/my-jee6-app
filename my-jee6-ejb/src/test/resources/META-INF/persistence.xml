@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="aa-jpa">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>maBase</jta-data-source>
+		<mapping-file>META-INF/orm.xml</mapping-file>
+		<class>org.jobjects.orm.person.Person</class>
+		<class>org.jobjects.orm.role.Role</class>
+		<class>org.jobjects.orm.discussion.Discussion</class>
+		<class>org.jobjects.orm.message.Message</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="eclipselink.target-database" value="Derby"/>
+			<property name="eclipselink.application-location" value="${project.build.outputDirectory}"/>
+			
+			<!-- <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />  -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+            <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+            	
+            <!-- FINEST FINER FINE CONFIG INFO WARNING SEVERE -->
+			<property name="eclipselink.logging.level" value="FINE"/>
+			<property name="eclipselink.logging.level.sql" value="FINE"/>
+			<property name="eclipselink.logging.exceptions" value="true" />
+			<property name="eclipselink.logging.session" value="true" />
+			<property name="eclipselink.logging.parameters" value="true"/>
+			<property name="eclipselink.logging.file" value="./target/eclipselink.txt" />
+			<property name="eclipselink.logging.logger" value="JavaLogger"/>
+
+			<!-- 
+			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />			
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:MyDerbyDB" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:MyDerbyDB;create=true;user=sa;password=manager" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/MyDerbyDB;create=true;user=sa;password=manager" />
+			<property name="javax.persistence.jdbc.user" value="APP" />
+			<property name="javax.persistence.jdbc.password" value="APP" />
+			 -->
+		</properties>
+		
+	</persistence-unit>
+</persistence>

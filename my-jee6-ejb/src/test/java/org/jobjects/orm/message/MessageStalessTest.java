@@ -10,7 +10,7 @@ import javax.naming.Context;
 
 import org.jobjects.orm.discussion.Discussion;
 import org.jobjects.orm.discussion.DiscussionFacade;
-import org.jobjects.orm.tools.EJBContainerEmbedded;
+import org.jobjects.tools.ejbcontainer.EJBContainerEmbedded;
 import org.testng.annotations.Test;
 
 public class MessageStalessTest {
@@ -21,10 +21,10 @@ public class MessageStalessTest {
 	// "java:global/my-jee-app/classes/MessagesStaless!org.jobjects.orm.message.MessageFacade";
 	private String jndiStaless = "java:global/my-jee6-ejb/MessageStaless";
 	private String jndiDiscussionStaless = "java:global/my-jee6-ejb/DiscussionStaless";
-	private Context ctx;
+	//private Context ctx;
 
 	public MessageStalessTest() {
-		ctx = EJBContainerEmbedded.getInstance().getContext();
+		//ctx = EJBContainerEmbedded.getInstance().getContext();
 	}
 
 	@Test
@@ -36,6 +36,7 @@ public class MessageStalessTest {
 	public void testCreateByDiscussion() throws Exception {
 		log.log(Level.INFO, "#### >> testCreateByDiscussion");
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			DiscussionFacade facadeDiscussion = (DiscussionFacade) ctx.lookup(jndiDiscussionStaless);
 			assertNotNull(facadeDiscussion);
 			Discussion discussion = new Discussion();
@@ -57,6 +58,7 @@ public class MessageStalessTest {
 	public void testCreateByMessage() throws Exception {
 		log.log(Level.INFO, "#### >> testCreateByMessage");
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			DiscussionFacade facadeDiscussion = (DiscussionFacade) ctx.lookup(jndiDiscussionStaless);
 			assertNotNull(facadeDiscussion);
 			MessageFacade facade = (MessageFacade) ctx.lookup(jndiStaless);

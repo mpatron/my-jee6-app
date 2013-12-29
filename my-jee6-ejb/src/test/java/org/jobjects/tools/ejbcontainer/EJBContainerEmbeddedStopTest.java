@@ -10,7 +10,7 @@ public class EJBContainerEmbeddedStopTest {
 			.getName());
 	
 	//@Test(groups = "ir", enabled = true)
-	@AfterSuite(groups = "ir", enabled = true)
+	@AfterSuite(groups = "MaSuite", enabled = true)
 	public void startGlassfish() {
 		LOGGER.log(Level.INFO, " ====================================== ");
 		LOGGER.log(Level.INFO, " =          STOP OPENEJB              = ");

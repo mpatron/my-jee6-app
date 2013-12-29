@@ -1,4 +1,4 @@
-package org.jobjects.derby;
+package org.jobjects.tools.log;
 
 import java.text.DateFormat;
 import java.text.MessageFormat;

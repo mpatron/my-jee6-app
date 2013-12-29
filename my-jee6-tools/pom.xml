@@ -6,7 +6,6 @@
 	<packaging>jar</packaging>
 	<name>Java EE Tools</name>
 
-
 	<parent>
 		<groupId>org.jobjects</groupId>
 		<artifactId>my-jee6-app</artifactId>
@@ -103,13 +102,14 @@
 	<dependencies>
 		<!-- <dependency> <groupId>javax</groupId> <artifactId>javaee-api</artifactId> 
 			<version>6.0</version> <type>jar</type> <scope>provided</scope> </dependency> -->
+			<!-- 
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>org.eclipse.persistence.jpa</artifactId>
-			<!--<version>2.4.2-SNAPSHOT</version> -->
 			<version>2.5.0</version>
 			<scope>test</scope>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
@@ -135,15 +135,10 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-
 		<testResources>
 			<testResource>
 				<directory>src/test/resources</directory>
 				<filtering>true</filtering>
-				<excludes>
-					<exclude>**/fit/**</exclude>
-					<exclude>**/reports/**</exclude>
-				</excludes>
 			</testResource>
 		</testResources>
 
@@ -187,7 +182,7 @@
 					<systemProperties>
 						<property>
 							<name>java.util.logging.config.file</name>
-							<value>${basedir}/src/test/resources/logging.properties</value>
+							<value>${basedir}/src/main/resources/logging.properties</value>
 						</property>
 						<property>
 							<name>derby.stream.error.file</name>

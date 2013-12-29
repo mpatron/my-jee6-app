@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 import javax.naming.Context;
 
-import org.jobjects.orm.tools.EJBContainerEmbedded;
+import org.jobjects.tools.ejbcontainer.EJBContainerEmbedded;
 import org.testng.annotations.Test;
 
 public class PersonStalessTest {
@@ -24,10 +24,10 @@ public class PersonStalessTest {
 	//private String jndiStaless = "java:global/my-jee-app/classes/PersonStaless";
 	private String jndiStaless = "java:global/my-jee6-ejb/PersonStaless";
 	
-	private Context ctx;
+	//private Context ctx;
 
 	public PersonStalessTest() {
-		ctx = EJBContainerEmbedded.getInstance().getContext();
+		//ctx = EJBContainerEmbedded.getInstance().getContext();		
 	}
 
 	/**
@@ -53,6 +53,7 @@ public class PersonStalessTest {
 	public void testCreate() throws Exception {
 		Logger.getLogger(getClass().getName()).log(Level.INFO, "#### >> testCreate");
 		//try {
+		Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
 			
 			if(personFacade.find("mpatron") != null ) {
@@ -82,6 +83,7 @@ public class PersonStalessTest {
 	@Test(groups = "MaSuite")
 	public void testSave() {
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
 			Person person = new Person();
 			person.setLogin("mpatron");
@@ -113,6 +115,7 @@ public class PersonStalessTest {
 	@Test(groups = "MaSuite")
 	public void testFind() {
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
 			Person person = personFacade.find("mpatron");
 			assertNotNull(person);
@@ -124,6 +127,7 @@ public class PersonStalessTest {
 	@Test(groups = "MaSuite")
 	public void testFindAll() {
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
 			List<Person> list = personFacade.findAll();
 			System.out.println("count = " + list.size());
@@ -139,6 +143,7 @@ public class PersonStalessTest {
 	@Test(groups = "MaSuite")
 	public void testFindRange() {
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
 			List<Person> list = personFacade.findRange(new int[] { 0, 1 });
 			Logger.getLogger(PersonStalessTest.class.getName()).log(Level.INFO,
@@ -153,7 +158,9 @@ public class PersonStalessTest {
 	@Test(groups = "MaSuite")
 	public void testCount() {
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
 			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
+
 			long l = personFacade.count();
 			assertTrue(l >= 0);
 		} catch (Exception e) {
