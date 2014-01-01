@@ -8,6 +8,7 @@
 	<name>Java EE pom</name>
 
 	<modules>
+		<module>my-jee6-tools</module>
 		<module>my-jee6-ear</module>
 		<module>my-jee6-war</module>
 		<module>my-jee6-ejb</module>
@@ -69,12 +70,20 @@
 			<version>6.3.1</version>
 			<scope>test</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-nop</artifactId>
-			<version>1.6.3</version>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.5</version>
+			<scope>test</scope>
+		</dependency>
+		-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>

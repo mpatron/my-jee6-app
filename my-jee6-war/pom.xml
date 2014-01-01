@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-ejb</artifactId>
-			<version>${parent.version}</version>
+			<version>${project.parent.version}</version>
 			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>

@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # Fichier et répertoire de configuration de projet d'eclipse
-=======
 *.class
 
 # Package Files #
@@ -9,18 +7,15 @@
 *.ear
 
 # Eclipse
->>>>>>> d582d3bc57a19f568c631a1512419ea77fd332c2
 .classpath
 .project
 .settings
 
-<<<<<<< HEAD
 # Répertoire de travail de maven
 target
 
 # fichier temporaire de vim
 *~
-=======
-# Maven 
-target
->>>>>>> d582d3bc57a19f568c631a1512419ea77fd332c2
+
+# Derby
+derby.log

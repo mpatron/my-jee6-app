@@ -14,10 +14,20 @@
 	</parent>
 
 	<dependencies>
+		<!-- <dependency> <groupId>org.jobjects</groupId> <artifactId>my-jee6-persistence</artifactId> 
+			<version>${project.parent.version}</version> </dependency> -->
 		<dependency>
-			<groupId>org.glassfish.extras</groupId>
-			<artifactId>glassfish-embedded-all</artifactId>
-			<version>3.1.1</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.glassfish.extras</groupId> <artifactId>glassfish-embedded-all</artifactId> 
+			<version>3.1.1</version> <scope>test</scope> </dependency> -->
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>openejb-core</artifactId>
+			<version>4.6.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -27,6 +37,24 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<!--<version>[10.9.1.0,)</version> -->
+			<version>10.10.1.1</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyLocale_fr</artifactId>
+			<!--<version>[10.9.1.0,)</version> -->
+			<version>10.10.1.1</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -34,10 +62,28 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -45,13 +91,8 @@
 				<version>2.3</version>
 				<configuration>
 					<ejbVersion>3.1</ejbVersion>
-					<!-- 
-					<archive>
-             			<manifest>
-	              			<addClasspath>true</addClasspath>
-	           			</manifest>
-           			</archive>
-           			 -->					
+					<!-- <archive> <manifest> <addClasspath>true</addClasspath> </manifest> 
+						</archive> -->
 				</configuration>
 			</plugin>
 			<plugin>
@@ -84,47 +125,106 @@
 				<version>2.10</version>
 				<configuration>
 					<argLine>-Xms128m -Xmx256m -XX:PermSize=128m -XX:MaxPermSize=256m</argLine>
-					<parallel>true</parallel>
+					<parallel>false</parallel>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<systemProperties>
+						<property>
+							<name>java.util.logging.config.file</name>
+							<value>${basedir}/src/test/resources/logging.properties</value>
+						</property>
+						<property>
+							<name>derby.stream.error.file</name>
+							<value>${basedir}/target/derby.log</value>
+						</property>
+					</systemProperties>
 				</configuration>
 			</plugin>
-			<!-- 
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>dbunit-maven-plugin</artifactId> 
+				<version>1.0-beta-3</version> <dependencies> <dependency> <groupId>postgresql</groupId> 
+				<artifactId>postgresql</artifactId> <version>9.0-801.jdbc4</version> </dependency> 
+				</dependencies> <configuration> <driver>org.postgresql.Driver</driver> <url>jdbc:postgresql://localhost:5432/mabase</url> 
+				<username>javauser</username> <password>javapassword </password> </configuration> 
+				<executions> <execution> <phase>test-compile</phase> <goals> <goal>operation</goal> 
+				</goals> <configuration> <type>CLEAN_INSERT</type> <src>src/test/resources/db_data.xml</src> 
+				<useQualifiedTableNames>true</useQualifiedTableNames> <schema>public</schema> 
+				</configuration> </execution> </executions> </plugin> -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>dbunit-maven-plugin</artifactId>
-				<version>1.0-beta-3</version>
-				<dependencies>
-					<dependency>
-						<groupId>postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-						<version>9.0-801.jdbc4</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<driver>org.postgresql.Driver</driver>
-					<url>jdbc:postgresql://localhost:5432/mabase</url>
-					<username>javauser</username>
-					<password>javapassword </password>
-				</configuration>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.3</version>
 				<executions>
 					<execution>
-						<phase>test-compile</phase>
-						<goals>
-							<goal>operation</goal>
-						</goals>
+						<id>copy-test-persistence</id>
+						<phase>process-test-resources</phase>
 						<configuration>
-							<type>CLEAN_INSERT</type>
-							<src>src/test/resources/db_data.xml</src>
-							<useQualifiedTableNames>true</useQualifiedTableNames>
-							<schema>public</schema>
+							<tasks>
+								<echo>utilisation du persistence.xml du test.</echo>
+								<copy
+									file="${project.build.outputDirectory}/META-INF/persistence.xml"
+									tofile="${project.build.outputDirectory}/META-INF/persistence_xml.proper" />
+								<copy
+									file="${project.build.testOutputDirectory}/testpersistence/persistence_xml"
+									tofile="${project.build.outputDirectory}/META-INF/persistence.xml" />
+							</tasks>
 						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>restore-persistence</id>
+						<phase>prepare-package</phase>
+						<configuration>
+							<tasks>
+								<echo>Retablissement du persistence.xml.</echo>
+								<move
+									file="${project.build.outputDirectory}/META-INF/persistence_xml.proper"
+									tofile="${project.build.outputDirectory}/META-INF/persistence.xml" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
-			-->
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-antrun-plugin
+										</artifactId>
+										<versionRange>
+											[1.3,)
+										</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>		
 	</build>
 
 </project>

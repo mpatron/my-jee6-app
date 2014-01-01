@@ -17,13 +17,14 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Pattern;
 
 import org.jobjects.orm.role.Role;
+import org.jobjects.orm.tools.AppConstants;
 
 /**
  * Entity implementation class for Entity: User
  * 
  */
 @Entity
-@Table(name = "PERSONS"/*, schema = "AAJPA"*/)
+@Table(name = "PERSONS", schema = AppConstants.SCHEMA_NAME)
 @NamedQueries({
 		@NamedQuery(name = "findPersonByLogin", query = "select t from Person t where t.login = :login"),
 		@NamedQuery(name = "findAllPersonByFirstName", query = "select t from Person t where t.firstName = :firstName") })
@@ -60,7 +61,7 @@ public class Person implements Serializable {
 	private String email;
 
 	@ManyToMany()
-	@JoinTable(name="persons_roles")
+	@JoinTable(name="persons_roles",schema = AppConstants.SCHEMA_NAME)
 	private List<Role> role;
 
 	public String getLogin() {

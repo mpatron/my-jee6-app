@@ -9,17 +9,20 @@ import java.util.logging.Logger;
 
 import javax.naming.Context;
 
-import org.jobjects.orm.tools.EJBContainerEmbedded;
+import org.jobjects.tools.ejbcontainer.EJBContainerEmbedded;
 import org.testng.annotations.Test;
 
 public class RoleStalessTest {
 
 	private Logger log = Logger.getLogger(getClass().getName());
 	
-	private Context ctx;
+	//"java:global/my-jee-app/classes/RoleStaless!org.jobjects.orm.role.RoleFacade"
+	private String jndiStaless = "java:global/my-jee6-ejb/RoleStaless";
+	
+	//private Context ctx;
 
 	public RoleStalessTest() {
-		ctx = EJBContainerEmbedded.getInstance().getContext();
+		//ctx = EJBContainerEmbedded.getInstance().getContext();
 	}
 
 	/**
@@ -34,8 +37,8 @@ public class RoleStalessTest {
 	@Test(groups = "MaSuite")
 	public void testFindAll() {
 		try {
-			RoleFacade RoleFacade = (RoleFacade) ctx
-					.lookup("java:global/my-jee-app/classes/RoleStaless!org.jobjects.orm.role.RoleFacade");
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
+			RoleFacade RoleFacade = (RoleFacade) ctx.lookup(jndiStaless);
 			List<Role> list = RoleFacade.findAll();
 			System.out.println("count = " + list.size());
 			Logger.getLogger(RoleStalessTest.class.getName()).log(Level.INFO,
