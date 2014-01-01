@@ -15,14 +15,14 @@
 		<dependency>
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-war</artifactId>
-			<version>${parent.version}</version>
+			<version>${project.parent.version}</version>
 			<type>war</type>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jobjects</groupId>
 			<artifactId>my-jee6-ejb</artifactId>
-			<version>${parent.version}</version>
+			<version>${project.parent.version}</version>
 			<type>ejb</type>
 		</dependency>
 	</dependencies>

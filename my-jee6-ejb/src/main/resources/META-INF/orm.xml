@@ -6,7 +6,7 @@
   version="2.0">
     <persistence-unit-metadata>
         <persistence-unit-defaults>
-            <schema>APP</schema>
+            <schema>app</schema>
         </persistence-unit-defaults>
     </persistence-unit-metadata>
 </entity-mappings>

@@ -61,14 +61,14 @@ public class EJBContainerEmbedded {
 		properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.openejb.core.LocalInitialContextFactory");
         properties.put(EJBContainer.PROVIDER, "org.apache.openejb.OpenEjbContainer");
         //properties.put("openejb.deployments.classpath.ear", "true");
-        //properties.put("openejb.validation.output.level", "VERBOSE");
+        properties.put("openejb.validation.output.level", "VERBOSE");
         
-        String dbName="maBase";
+        String dbName="maBaseDeTest";
         properties.put(dbName, "new://Resource?type=DataSource");
         dbName += ".";
         properties.put(dbName + "JdbcDriver", "org.apache.derby.jdbc.EmbeddedDriver");
         properties.put(dbName + "JdbcUrl", "jdbc:derby:memory:MyDerbyDB;create=true");
-        properties.put(dbName + "UserName", "APP");
+        properties.put(dbName + "UserName", "app");
         properties.put(dbName + "Password", "APP");
         properties.put(dbName + "JtaManaged", "true");
         
