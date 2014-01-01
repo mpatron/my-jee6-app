@@ -21,4 +21,7 @@ redeploy --name my-jee6-ear-1.0 --properties keepSessions=true C:/Users/Mickael/
 
 deploy --force=true C:/Users/Mickael/Documents/java/github/my-jee6-app/my-jee6-ear/target/my-jee6-ear-1.0.ear
 
-sous PostgreSQL: creer le schema avec CREATE SCHEMA IF NOT EXISTS APP AUTHORIZATION APP
+Sous PostgreSQL: 
+creer l'utilsateur APP avec CREATE USER APP WITH UNENCRYPTED PASSWORD 'APP';
+creer le schema avec CREATE SCHEMA IF NOT EXISTS APP AUTHORIZATION APP;
+Info : Sous PostgreSQL le schema n'est pas l'utilisateur comme dans Oracle.
