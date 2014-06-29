@@ -26,8 +26,8 @@ import org.jobjects.orm.tools.AppConstants;
 @Entity
 @Table(name = "PERSONS", schema = AppConstants.SCHEMA_NAME)
 @NamedQueries({
-		@NamedQuery(name = "findPersonByLogin", query = "select t from Person t where t.login = :login"),
-		@NamedQuery(name = "findAllPersonByFirstName", query = "select t from Person t where t.firstName = :firstName") })
+		@NamedQuery(name = "Person.findPersonByLogin", query = "select t from Person t where t.login = :login"),
+		@NamedQuery(name = "Person.findAllPersonByFirstName", query = "select t from Person t where t.firstName = ?1") })
 public class Person implements Serializable {
 
 	public Person() {

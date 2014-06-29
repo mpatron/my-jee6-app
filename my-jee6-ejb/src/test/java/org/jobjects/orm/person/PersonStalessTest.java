@@ -13,6 +13,8 @@ import java.util.regex.Pattern;
 
 import javax.naming.Context;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jobjects.tools.ejbcontainer.EJBContainerEmbedded;
 import org.testng.annotations.Test;
 
@@ -169,10 +171,19 @@ public class PersonStalessTest {
 	}
 
 	@Test(groups = "MaSuite")
-	public void testFindByNamedQuery() {
+	public void testFindByNamedQuery() throws Throwable {
 		try {
+			Context ctx = EJBContainerEmbedded.getInstance().getContext();
+			PersonFacade personFacade = (PersonFacade) ctx.lookup(jndiStaless);
+			List<Person> results = personFacade.findByNamedQuery("Person.findAllPersonByFirstName", "Mickael");
+			long l = results.size();
+			assertTrue(l >= 0);
+			for (Person person : results) {
+				log.info(ToStringBuilder.reflectionToString(person, ToStringStyle.SHORT_PREFIX_STYLE)  );
+			}
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
+			throw e;
 		}
 	}
 
