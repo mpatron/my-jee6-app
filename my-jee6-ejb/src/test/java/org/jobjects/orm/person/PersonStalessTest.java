@@ -181,6 +181,15 @@ public class PersonStalessTest {
 			for (Person person : results) {
 				log.info(ToStringBuilder.reflectionToString(person, ToStringStyle.SHORT_PREFIX_STYLE)  );
 			}
+			log.log(Level.ALL, "Test"+Level.SEVERE);
+			log.log(Level.CONFIG, "Test"+Level.CONFIG);
+			log.log(Level.FINE, "Test"+Level.FINE);
+			log.log(Level.FINER, "Test"+Level.FINER);
+			log.log(Level.FINEST, "Test"+Level.FINEST);
+			log.log(Level.INFO, "Test"+Level.INFO);
+			log.log(Level.OFF, "Test"+Level.OFF);
+			log.log(Level.SEVERE, "Test"+Level.SEVERE);
+			log.log(Level.WARNING, "Test"+Level.WARNING);
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
 			throw e;
