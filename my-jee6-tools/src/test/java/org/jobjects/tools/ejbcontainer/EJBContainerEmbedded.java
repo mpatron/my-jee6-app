@@ -1,6 +1,5 @@
 package org.jobjects.tools.ejbcontainer;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
