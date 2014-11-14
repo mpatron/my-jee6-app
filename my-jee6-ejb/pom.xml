@@ -156,7 +156,7 @@
 				<executions>
 					<execution>
 						<id>copy-test-persistence</id>
-						<phase>process-test-resources</phase>
+						<phase>generate-test-resources</phase>
 						<configuration>
 							<tasks>
 								<echo>utilisation du persistence.xml du test.</echo>
