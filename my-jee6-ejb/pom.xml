@@ -125,6 +125,9 @@
 				<version>2.10</version>
 				<configuration>
 					<argLine>-Xms128m -Xmx256m -XX:PermSize=128m -XX:MaxPermSize=256m</argLine>
+					<!--
+					 -javaagent:"${user.home}/.m2/repository/org/apache/openejb/patch/openjpa/2.3.0-nonfinal-1540826/openjpa-2.3.0-nonfinal-1540826.jar" 
+					 -->
 					<parallel>false</parallel>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
@@ -138,6 +141,7 @@
 							<name>derby.stream.error.file</name>
 							<value>${basedir}/target/derby.log</value>
 						</property>
+						
 					</systemProperties>
 				</configuration>
 			</plugin>
